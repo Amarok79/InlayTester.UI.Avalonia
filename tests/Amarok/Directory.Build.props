@@ -1,0 +1,33 @@
+<Project>
+
+    <PropertyGroup>
+        <RootNamespace>Amarok</RootNamespace>
+        <Nullable>Disable</Nullable>
+        <ImplicitUsings>Enable</ImplicitUsings>
+        <IsPackable>False</IsPackable>
+        <IsPublishable>False</IsPublishable>
+        <IsTestProject>True</IsTestProject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="Moq" />
+        <PackageReference Include="NFluent" />
+        <PackageReference Include="NUnit" />
+        <PackageReference Include="NUnit.Analyzers">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="NUnit3TestAdapter" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="NFluent" />
+        <Using Include="NUnit.Framework" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,93 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+
+
+    <Design.PreviewWith>
+        <StackPanel
+            Width="400"
+            Spacing="10">
+            <StackPanel Background="{DynamicResource SystemRegionBrush}">
+                <c:TextField
+                    Icon="AboutCircle"
+                    IsReadOnly="True"
+                    Kind="Text"
+                    Label="label"
+                    Placeholder="enter name" />
+                <c:TextField
+                    Icon="AboutCircle"
+                    IsEnabled="False"
+                    Kind="Password"
+                    Label="label"
+                    Placeholder="enter name" />
+                <c:TextField
+                    Icon="AboutCircle"
+                    Kind="MultiLine"
+                    Label="label"
+                    Placeholder="enter name" />
+            </StackPanel>
+        </StackPanel>
+    </Design.PreviewWith>
+
+
+    <ControlTheme
+        x:Key="{x:Type c:TextField}"
+        TargetType="c:TextField">
+
+        <Setter Property="Template">
+            <ControlTemplate>
+
+                <Grid
+                    ColumnDefinitions="28,*"
+                    RowDefinitions="Auto,Auto">
+
+                    <Label
+                        Name="PART_Label"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="2,0,0,4"
+                        Classes="theme-form-control-label"
+                        Content="{TemplateBinding Label}"
+                        Foreground="{a:ThemeResource FormControlLabelForegroundBrush}"
+                        Target="{Binding #PART_TextBox}">
+                    </Label>
+
+                    <i:MaterialIcon
+                        DockPanel.Dock="Left"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Width="16"
+                        Height="16"
+                        Margin="0,10,8,0"
+                        VerticalAlignment="Top"
+                        Foreground="{a:ThemeResource ControlForegroundBrushOutlineAccent}"
+                        IsVisible="{TemplateBinding Icon,
+                                                    Converter={x:Static ObjectConverters.IsNotNull}}"
+                        Kind="{TemplateBinding Icon}">
+                    </i:MaterialIcon>
+
+                    <TextBox
+                        Name="PART_TextBox"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                        IsEnabled="{TemplateBinding IsEnabled}"
+                        IsReadOnly="{TemplateBinding IsReadOnly}"
+                        IsUndoEnabled="False"
+                        MaxLength="{TemplateBinding MaxLength}"
+                        Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                        UseFloatingWatermark="False"
+                        Watermark="{TemplateBinding Placeholder}">
+                    </TextBox>
+
+                </Grid>
+
+            </ControlTemplate>
+        </Setter>
+
+    </ControlTheme>
+
+</ResourceDictionary>

@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <OutputPath>..\..\..\bin\app\bin-ui</OutputPath>
+        <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
+        <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPublishable Condition="'$(RuntimeIdentifier)' != ''">True</IsPublishable>
+        <PublishDir>..\..\..\bin\pub\bin-ui\$(RuntimeIdentifier)</PublishDir>
+        <PublishReadyToRun>True</PublishReadyToRun>
+        <PublishSelfContained>True</PublishSelfContained>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ActiproSoftware.Controls.Avalonia" />
+        <PackageReference Include="Avalonia.Desktop" />
+        <PackageReference Include="Avalonia.Diagnostics" />
+        <PackageReference Include="Avalonia.Fonts.Inter" />
+        <PackageReference Include="Avalonia.LinuxFramebuffer" />
+        <PackageReference Include="DryIoc.MefAttributedModel.dll" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+        <PackageReference Include="Microsoft.Extensions.Localization" />
+        <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" />
+        <PackageReference Include="Serilog" />
+        <PackageReference Include="Serilog.Extensions.Hosting" />
+        <PackageReference Include="Serilog.Extensions.Logging" />
+        <PackageReference Include="Serilog.Enrichers.Thread" />
+        <PackageReference Include="Serilog.Sinks.Async" />
+        <PackageReference Include="Serilog.Sinks.File" />
+        <PackageReference Include="Serilog.Sinks.Seq" />
+        <PackageReference Include="StringTokenFormatter" />
+        <PackageReference Include="Tommy" />
+        <PackageReference Include="Tommy.Extensions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Amarok\Amarok.Fabric.Avalonia.Abstractions\Amarok.Fabric.Avalonia.Abstractions.csproj" />
+        <ProjectReference Include="..\..\Amarok\Amarok.Fabric.Avalonia\Amarok.Fabric.Avalonia.csproj" />
+        <ProjectReference Include="..\InlayTester.Domain\InlayTester.Domain.csproj" />
+        <ProjectReference Include="..\InlayTester.Infrastructure.Gateway\InlayTester.Infrastructure.Gateway.csproj" />
+        <ProjectReference Include="..\InlayTester.Infrastructure.Services\InlayTester.Infrastructure.Services.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Common\InlayTester.UI.Common.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Controls\InlayTester.UI.Controls.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Pages.Home.Abstractions\InlayTester.UI.Pages.Home.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Pages.Home\InlayTester.UI.Pages.Home.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Pages.Users.Abstractions\InlayTester.UI.Pages.Users.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Pages.Users\InlayTester.UI.Pages.Users.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Shell.Abstractions\InlayTester.UI.Shell.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Shell\InlayTester.UI.Shell.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="ui.config*.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="translations\en.toml">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\*.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Assets\app.ico" />
+    </ItemGroup>
+
+</Project>

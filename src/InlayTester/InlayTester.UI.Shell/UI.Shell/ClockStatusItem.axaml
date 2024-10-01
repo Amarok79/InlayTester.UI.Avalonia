@@ -1,0 +1,38 @@
+<UserControl
+    x:Class="InlayTester.UI.Shell.ClockStatusItem"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Shell"
+    x:DataType="v:ClockStatusItemViewModel"
+    d:DesignHeight="60"
+    d:DesignWidth="120"
+    mc:Ignorable="d">
+
+    <Button
+        Height="42"
+        Classes="theme-subtle"
+        Focusable="False"
+        ToolTip.Tip="{Binding ToolTip}">
+        <StackPanel Orientation="Horizontal">
+
+            <i:MaterialIcon
+                Width="16"
+                Height="16"
+                Margin="0,0,4,0"
+                VerticalAlignment="Center"
+                Kind="{x:Static v:ShellIcons.Clock}">
+            </i:MaterialIcon>
+
+            <TextBlock
+                VerticalAlignment="Center"
+                Text="{Binding Text}">
+            </TextBlock>
+
+        </StackPanel>
+    </Button>
+
+</UserControl>

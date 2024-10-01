@@ -1,0 +1,53 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+
+
+    <Design.PreviewWith>
+        <StackPanel
+            Width="400"
+            Margin="50"
+            Spacing="10">
+            <c:PageHeader
+                Icon="About"
+                Text="About" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+
+    <ControlTheme
+        x:Key="{x:Type c:PageHeader}"
+        TargetType="c:PageHeader">
+
+        <Setter Property="ClipToBounds" Value="False" />
+
+        <Setter Property="Template">
+            <ControlTemplate>
+
+                <StackPanel Orientation="Horizontal">
+                    <i:MaterialIcon
+                        Width="32"
+                        Height="32"
+                        Margin="-12,0,8,0"
+                        VerticalAlignment="Bottom"
+                        Foreground="{a:ThemeResource ControlForegroundBrushOutlineAccent}"
+                        Kind="{TemplateBinding Icon}">
+                    </i:MaterialIcon>
+
+                    <TextBlock
+                        VerticalAlignment="Bottom"
+                        Classes="theme-text-heading size-lg"
+                        Foreground="{a:ThemeResource ControlForegroundBrushOutlineAccent}"
+                        Text="{TemplateBinding Text}">
+                    </TextBlock>
+                </StackPanel>
+
+            </ControlTemplate>
+        </Setter>
+
+    </ControlTheme>
+
+</ResourceDictionary>

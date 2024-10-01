@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" />
+        <PackageReference Include="CommunityToolkit.Diagnostics" />
+        <PackageReference Include="DryIoc.dll" />
+        <PackageReference Include="DryIoc.MefAttributedModel.dll" />
+        <PackageReference Include="DryIoc.Microsoft.DependencyInjection" />
+        <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" />
+        <PackageReference Include="Microsoft.VisualStudio.Threading" />
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Amarok.Fabric.Avalonia.Abstractions\Amarok.Fabric.Avalonia.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>

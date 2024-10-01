@@ -1,0 +1,169 @@
+<UserControl
+    x:Class="InlayTester.UI.Shell.MessageBox"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Shell"
+    x:DataType="v:MessageBoxViewModel"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    Classes.error="{Binding IsErrorStyle}"
+    Classes.info="{Binding IsInfoStyle}"
+    Classes.question="{Binding IsQuestionStyle}"
+    Classes.warning="{Binding IsWarningStyle}"
+    mc:Ignorable="d">
+
+
+    <Design.DataContext>
+        <v:MessageBoxViewModel
+            Title="Title"
+            Icon="Info"
+            AcceptText="Yes"
+            CancelText="No"
+            IsAccentColorStyle="False"
+            IsCancelVisible="True"
+            IsDangerColorStyle="False"
+            IsErrorStyle="False"
+            IsInfoStyle="False"
+            IsOpen="True"
+            IsQuestionStyle="True"
+            IsWarningColorStyle="True"
+            IsWarningStyle="False"
+            Text="sfask asfk aöäsfk aäkf askf aäskfaäskf asf äöakf aäskf äaskf aäsökf">
+        </v:MessageBoxViewModel>
+    </Design.DataContext>
+
+
+    <UserControl.Styles>
+        <Style Selector="v|MessageBox">
+
+            <Style Selector="^.info Border#BorderControl">
+                <Setter Property="Background" Value="{a:ThemeResource Container2BackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{a:ThemeResource ControlBackgroundBrushSolidAccent}" />
+            </Style>
+            <Style Selector="^.question Border#BorderControl">
+                <Setter Property="Background" Value="{a:ThemeResource Container2BackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{a:ThemeResource ControlBackgroundBrushSolidWarning}" />
+            </Style>
+            <Style Selector="^.warning Border#BorderControl">
+                <Setter Property="Background" Value="{a:ThemeResource Container2BackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{a:ThemeResource ControlBackgroundBrushSolidWarning}" />
+            </Style>
+            <Style Selector="^.error Border#BorderControl">
+                <Setter Property="Background" Value="{a:ThemeResource Container2BackgroundBrush}" />
+                <Setter Property="BorderBrush" Value="{a:ThemeResource ControlBackgroundBrushSolidDanger}" />
+            </Style>
+
+            <Style Selector="^.info Button#AcceptButton">
+                <Setter Property="IsDefault" Value="True" />
+                <Setter Property="IsCancel" Value="True" />
+            </Style>
+            <Style Selector="^.question Button#AcceptButton">
+                <Setter Property="IsDefault" Value="True" />
+            </Style>
+            <Style Selector="^.warning Button#AcceptButton">
+                <Setter Property="IsDefault" Value="True" />
+                <Setter Property="IsCancel" Value="True" />
+            </Style>
+            <Style Selector="^.error Button#AcceptButton">
+                <Setter Property="IsDefault" Value="True" />
+                <Setter Property="IsCancel" Value="True" />
+            </Style>
+
+            <Style Selector="^.question Button#CancelButton">
+                <Setter Property="IsCancel" Value="True" />
+            </Style>
+
+        </Style>
+    </UserControl.Styles>
+
+
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Background="#90161616"
+        ColumnDefinitions="*,5*,*"
+        IsHitTestVisible="True"
+        IsTabStop="False"
+        IsVisible="{Binding IsOpen}">
+
+        <a:ShadowChrome
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            Elevation="12"
+            ShadowOpacity="0.8">
+
+            <Border
+                Name="BorderControl"
+                Padding="48,32"
+                BorderThickness="1"
+                CornerRadius="{a:ThemeResource DialogCornerRadius}">
+
+                <Grid
+                    ColumnDefinitions="42,16,*"
+                    RowDefinitions="*,16,*,24,*">
+
+                    <i:MaterialIcon
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Width="42"
+                        Height="42"
+                        Foreground="{Binding #BorderControl.BorderBrush}"
+                        Kind="{Binding Icon}">
+                    </i:MaterialIcon>
+
+                    <SelectableTextBlock
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Classes="theme-text-heading"
+                        Foreground="{a:ThemeResource DefaultForegroundBrushMax}"
+                        IsTabStop="False"
+                        Text="{Binding Title}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="NoWrap">
+                    </SelectableTextBlock>
+
+                    <SelectableTextBlock
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Foreground="{a:ThemeResource DefaultForegroundBrushMax}"
+                        IsTabStop="False"
+                        Text="{Binding Text}"
+                        TextWrapping="Wrap">
+                    </SelectableTextBlock>
+
+                    <StackPanel
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                        <Button
+                            Name="CancelButton"
+                            Margin="0,0,12,0"
+                            Classes="it-button-form theme-soft"
+                            Command="{Binding CancelCommand}"
+                            Content="{Binding CancelText}"
+                            IsVisible="{Binding IsCancelVisible}">
+                        </Button>
+                        <Button
+                            Name="AcceptButton"
+                            Classes="it-button-form theme-solid"
+                            Classes.accent="{Binding IsAccentColorStyle}"
+                            Classes.danger="{Binding IsDangerColorStyle}"
+                            Classes.warning="{Binding IsWarningColorStyle}"
+                            Command="{Binding AcceptCommand}"
+                            Content="{Binding AcceptText}">
+                        </Button>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+        </a:ShadowChrome>
+    </Grid>
+
+</UserControl>

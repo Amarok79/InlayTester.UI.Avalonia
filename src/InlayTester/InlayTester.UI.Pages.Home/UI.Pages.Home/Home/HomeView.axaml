@@ -1,0 +1,116 @@
+<UserControl
+    x:Class="InlayTester.UI.Pages.Home.Home.HomeView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Pages.Home.Home"
+    x:DataType="v:HomeViewModel"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+
+
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Disabled"
+        VerticalScrollBarVisibility="Auto">
+
+        <StackPanel
+            Margin="96,32"
+            IsEnabled="{Binding !IsBusy}"
+            Orientation="Vertical">
+
+            <!--  Run  -->
+
+            <TextBlock
+                Classes="theme-text-heading size-lg accent"
+                Text="{f:GetText home.label-run}" />
+
+            <UniformGrid
+                Margin="0,16,0,32"
+                HorizontalAlignment="Stretch"
+                Columns="2">
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.RunTest}"
+                    Margin="0,0,8,0"
+                    Command="{Binding RunTestCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-test-run}"
+                    SecondaryText="{f:GetText home.label-test-run-info}" />
+            </UniformGrid>
+
+            <!--  Manage  -->
+
+            <TextBlock
+                Classes="theme-text-heading size-lg accent"
+                Text="{f:GetText home.label-manage}" />
+
+            <UniformGrid
+                Margin="0,16,0,32"
+                HorizontalAlignment="Stretch"
+                Columns="2"
+                Rows="2">
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.ManageSubstrates}"
+                    Margin="0,0,8,8"
+                    Command="{Binding ManageSubstratesCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-substrates}"
+                    SecondaryText="{f:GetText home.label-substrates-info}" />
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.ManageChips}"
+                    Margin="8,0,0,8"
+                    Command="{Binding ManageChipsCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-chips}"
+                    SecondaryText="{f:GetText home.label-chips-info}" />
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.ManageDistances}"
+                    Margin="0,8,8,0"
+                    Command="{Binding ManageDistancesCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-distances}"
+                    SecondaryText="{f:GetText home.label-distances-info}" />
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.ManageCalibrations}"
+                    Margin="8,8,0,0"
+                    Command="{Binding ManageDriveWheelCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-drive-wheel}"
+                    SecondaryText="{f:GetText home.label-drive-wheel-info}" />
+            </UniformGrid>
+
+            <!--  Administer  -->
+
+            <TextBlock
+                Classes="theme-text-heading size-lg accent"
+                Text="{f:GetText home.label-administer}" />
+
+            <UniformGrid
+                Margin="0,16,0,32"
+                HorizontalAlignment="Stretch"
+                Columns="2">
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.AdministerUsers}"
+                    Margin="0,0,8,0"
+                    Command="{Binding AdministerUsersCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-users}"
+                    SecondaryText="{f:GetText home.label-users-info}" />
+                <c:ListItem
+                    Icon="{x:Static v:HomeIcons.AdministerSettings}"
+                    Margin="8,0,0,0"
+                    Command="{Binding AdministerSettingsCommand}"
+                    IsCommandAreaVisible="False"
+                    PrimaryText="{f:GetText home.label-settings}"
+                    SecondaryText="{f:GetText home.label-settings-info}" />
+            </UniformGrid>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>

@@ -1,0 +1,82 @@
+<UserControl
+    x:Class="InlayTester.UI.Pages.Users.LoginOverlay"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Pages.Users"
+    x:DataType="v:LoginOverlayViewModel"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+
+
+    <Border
+        Padding="80,32"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Background="{a:ThemeResource Container2BackgroundBrush}"
+        BorderBrush="{a:ThemeResource ControlBackgroundBrushSolidAccent}"
+        BorderThickness="1"
+        CornerRadius="{a:ThemeResource DialogCornerRadius}"
+        IsEnabled="{Binding !IsBusy}">
+
+        <StackPanel
+            MinWidth="380"
+            Orientation="Vertical">
+
+            <c:PageHeader
+                Icon="{x:Static v:UsersIcons.Login}"
+                Margin="0,0,0,12"
+                Text="{f:GetText login.header-login}">
+            </c:PageHeader>
+
+            <c:Field
+                Icon="{x:Static v:UsersIcons.User}"
+                Label="{f:GetText login.label-user}">
+                <ComboBox
+                    Classes="it-combobox"
+                    DisplayMemberBinding="{Binding Name}"
+                    IsTextSearchEnabled="True"
+                    ItemsSource="{Binding Users}"
+                    SelectedItem="{Binding SelectedUser, Mode=TwoWay}">
+                </ComboBox>
+            </c:Field>
+
+            <c:TextField
+                Icon="{x:Static v:UsersIcons.Password}"
+                Margin="0,12,0,0"
+                CanRevealPassword="True"
+                Kind="Password"
+                Label="{f:GetText login.label-password}"
+                MaxLength="{Binding MaxPasswordLength}"
+                Text="{Binding Password}" />
+
+            <StackPanel
+                Margin="0,32,0,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Spacing="16">
+                <Button
+                    Classes="it-button-form theme-soft"
+                    Command="{Binding CancelCommand}"
+                    Content="{f:GetText login.button-cancel}"
+                    IsCancel="True"
+                    ToolTip.Tip="{f:GetText login.tooltip-cancel}">
+                </Button>
+                <Button
+                    Classes="it-button-form theme-solid accent"
+                    Command="{Binding LoginCommand}"
+                    Content="{f:GetText login.button-login}"
+                    IsDefault="True"
+                    ToolTip.Tip="{f:GetText login.tooltip-cancel}">
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+
+</UserControl>

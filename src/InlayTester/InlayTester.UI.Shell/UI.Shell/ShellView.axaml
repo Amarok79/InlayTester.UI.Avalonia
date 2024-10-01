@@ -1,0 +1,163 @@
+<UserControl
+    x:Class="InlayTester.UI.Shell.ShellView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Shell"
+    x:DataType="v:ShellViewModel"
+    Width="1024"
+    Height="768"
+    mc:Ignorable="d">
+
+
+    <Design.DataContext>
+        <v:ShellViewModel
+            IsHomeButtonVisible="True"
+            PageTitle="Page Title"
+            WindowTitle="Window Title">
+        </v:ShellViewModel>
+    </Design.DataContext>
+
+
+    <Grid
+        Margin="1"
+        RowDefinitions="64,*">
+
+        <!--  Page Content  -->
+
+        <Border
+            Grid.Row="1"
+            Background="{a:ThemeResource Container1BackgroundBrush}"
+            IsEnabled="{Binding IsBaseLayerEnabled}">
+            <TransitioningContentControl
+                Content="{Binding Page, Mode=OneWay}"
+                IsTransitionReversed="{Binding IsPageTransitionReversed}">
+                <TransitioningContentControl.PageTransition>
+                    <PageSlide
+                        Orientation="Horizontal"
+                        Duration="0:00:00.150">
+                    </PageSlide>
+                </TransitioningContentControl.PageTransition>
+            </TransitioningContentControl>
+        </Border>
+
+
+        <!--  App Bar  -->
+
+        <a:ChromedTitleBar
+            Grid.Row="0"
+            Background="{a:ThemeResource Container2BackgroundBrush}"
+            IsCloseButtonAllowed="False"
+            IsEnabled="{Binding IsBaseLayerEnabled}"
+            IsFullScreenButtonAllowed="False"
+            IsMaximizeButtonAllowed="False"
+            IsMinimizeButtonAllowed="False">
+
+            <a:ChromedTitleBar.LeftContent>
+
+                <!--  App Menu  -->
+
+                <Button
+                    Width="42"
+                    Height="42"
+                    Margin="12,0,12,0"
+                    Classes="theme-subtle"
+                    Focusable="False">
+                    <i:MaterialIcon
+                        Width="24"
+                        Height="24"
+                        Kind="{x:Static v:ShellIcons.Menu}">
+                    </i:MaterialIcon>
+                    <Button.Flyout>
+                        <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                            <MenuItem
+                                Command="{Binding QuitApplicationCommand}"
+                                Header="{f:GetText shell.button-quit}" />
+                        </MenuFlyout>
+                    </Button.Flyout>
+                </Button>
+
+            </a:ChromedTitleBar.LeftContent>
+
+            <a:ChromedTitleBar.Content>
+                <Grid
+                    Margin="12,0"
+                    ColumnDefinitions="Auto,12,*">
+
+                    <!--  Home Button  -->
+                    <Button
+                        Grid.Column="0"
+                        Width="42"
+                        Height="42"
+                        Classes="theme-soft"
+                        Command="{Binding HomeCommand}"
+                        Focusable="False"
+                        HotKey="Ctrl+H"
+                        IsVisible="{Binding IsHomeButtonVisible}"
+                        ToolTip.Tip="{f:GetText shell.tooltip-home}">
+                        <i:MaterialIcon
+                            Width="24"
+                            Height="24"
+                            Kind="{x:Static v:ShellIcons.Home}">
+                        </i:MaterialIcon>
+                    </Button>
+
+                    <!--  Page Title  -->
+                    <TextBlock
+                        Grid.Column="2"
+                        Classes="theme-text-heading size-sm"
+                        Foreground="{a:ThemeResource DefaultForegroundBrushMax}"
+                        Text="{Binding PageTitle, Mode=OneWay}">
+                    </TextBlock>
+
+                </Grid>
+            </a:ChromedTitleBar.Content>
+
+            <a:ChromedTitleBar.RightContent>
+                <StackPanel
+                    Margin="12,0"
+                    Orientation="Horizontal"
+                    Spacing="12">
+
+                    <!--  Status Items  -->
+
+                    <ContentControl Content="{f:GetViewModel USER/STATUS-ITEM}" />
+
+                    <ContentControl Content="{x:Type v:ClockStatusItemViewModel}" />
+
+                    <a:ToggleThemeButton
+                        Width="42"
+                        Height="42"
+                        Background="{a:ThemeResource Container2BackgroundBrush}"
+                        Classes="theme-subtle"
+                        Focusable="False"
+                        ToolTip.Tip="{f:GetText shell.button-theme}">
+                    </a:ToggleThemeButton>
+
+                </StackPanel>
+            </a:ChromedTitleBar.RightContent>
+        </a:ChromedTitleBar>
+
+        <!--  Overlay  -->
+        <ContentControl
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Content="{x:Type v:OverlayViewModel}"
+            IsEnabled="{Binding IsOverlayLayerEnabled}">
+        </ContentControl>
+
+        <!--  MessageBox  -->
+        <ContentControl
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Content="{x:Type v:MessageBoxViewModel}"
+            IsEnabled="{Binding IsMessageBoxLayerEnabled}">
+        </ContentControl>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,6 @@
+﻿USR100	...	UserEditViewModel
+USR101	...	UserEditViewModel
+USR200	...	UserListViewModel
+USR201	...	UserListViewModel
+USR300  ... LoginOverlayViewModel
+USR301  ... LoginOverlayViewModel

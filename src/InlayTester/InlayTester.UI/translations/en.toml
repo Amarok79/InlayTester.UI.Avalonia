@@ -1,0 +1,118 @@
+﻿label-ok = "OK"
+label-cancel = "CANCEL"
+label-yes = "YES"
+label-no = "NO"
+
+validation-error-required = "Required"
+
+msgbox-general-error-title = "UNEXPECTED ERROR"
+msgbox-general-error-text = "Error: {0}\r\n\r\n{1}"
+
+
+
+# Shell Window
+
+[shell]
+
+button-quit = "Quit application"
+button-login = "Login"
+button-logout = "Logout"
+button-switch-user = "Switch user"
+button-theme = "Toggle theme"
+
+tooltip-home = "Home (Ctrl+H)"
+tooltip-logged-in = "User '{0}' is currently logged in"
+tooltip-logged-out = "No user logged in"
+
+
+
+# Home
+
+[home]
+
+page-title = "Home"
+
+label-run = "Run"
+label-test-run = "Test Run"
+label-test-run-info = "Run checks on an inlay reel"
+
+label-manage = "Manage"
+label-substrates = "Substrates"
+label-substrates-info = "Manage substrate definitions"
+label-chips = "Chips"
+label-chips-info = "Manage chip definitions"
+label-distances = "Distances"
+label-distances-info = "Manage test distances"
+label-drive-wheel = "Drive wheel"
+label-drive-wheel-info = "Adjust drive wheel diameter"
+
+label-administer = "Administer"
+label-users = "Users"
+label-users-info = "Administrate user accounts"
+label-settings = "Settings"
+label-settings-info = "Administrate machine settings"
+
+
+
+
+# Administer / Users
+[users]
+
+page-title = "Administer / Users"
+
+page-header-list = "Users"
+page-header-new = "Create User"
+page-header-edit = "Edit User"
+
+label-name = "_Name"
+label-password1 = "_Password"
+label-password2 = "_Confirm password"
+label-roles = "Roles"
+label-notes = "No_tes"
+label-machine-operator = "Machine _Operator"
+label-machine-setter = "Machine _Setter"
+label-administrator = "_Administrator"
+label-modified = "Modified: {0}"
+
+hint-search = "Search"
+hint-name = "Enter your name"
+hint-password1 = "Enter your password"
+hint-password2 = "Re-enter your password"
+hint-notes = "Optional notes"
+
+button-create = "CREATE"
+button-accept-new = "CREATE"
+button-accept-edit = "SAVE"
+button-cancel-new = "CANCEL"
+button-cancel-edit = "CANCEL"
+
+tooltip-create = "Ctrl+T"
+tooltip-search = "Ctrl+F"
+tooltip-delete = "Delete (Ctrl+Del)"
+tooltip-edit = "Edit (Ctrl+E)"
+
+msgbox-delete-question = "Delete user '{0}'?"
+msgbox-delete-message = "You are about to permanently delete this user."
+msgbox-delete-accept = "DELETE"
+msgbox-delete-cancel = "KEEP"
+
+validation-error-password-mismatch = "Passwords must match"
+validation-error-role-required = "A single role is required"
+validation-error-name-exists = "Name must be unique"
+
+
+# Login
+[login]
+
+header-login = "Login"
+
+label-user = "_User"
+label-password = "_Password"
+
+button-login = "LOGIN"
+button-cancel = "CANCEL"
+
+tooltip-login = "Enter"
+tooltip-cancel = "Esc"
+
+error-password-mismatch = "Password is wrong"

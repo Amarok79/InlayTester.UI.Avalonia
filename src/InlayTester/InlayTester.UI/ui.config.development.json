@@ -1,0 +1,8 @@
+{
+  "avalonia": {
+    "dev-tools": true
+  },
+  "gateway": {
+    "simulate-slow-server-delay": 0
+  }
+}

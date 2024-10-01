@@ -1,0 +1,118 @@
+<UserControl
+    x:Class="InlayTester.UI.Pages.Users.UserListView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Pages.Users"
+    x:DataType="v:UserListViewModel"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+
+
+    <Design.DataContext>
+        <v:UserListViewModel
+            PageHeader="#Users"
+            PageIcon="{x:Static v:UsersIcons.ListUsers}">
+        </v:UserListViewModel>
+    </Design.DataContext>
+
+
+    <DockPanel Margin="96,32">
+
+        <c:HotKeyHelper
+            Command="{Binding FocusSearchTextBoxCommand}"
+            CommandParameter="{Binding #SearchTextBox}"
+            HotKey="Ctrl+F">
+        </c:HotKeyHelper>
+        <c:HotKeyHelper
+            Command="{Binding EditActiveItemCommand}"
+            HotKey="Ctrl+E">
+        </c:HotKeyHelper>
+        <c:HotKeyHelper
+            Command="{Binding DeleteActiveItemCommand}"
+            HotKey="Ctrl+Back">
+        </c:HotKeyHelper>
+        <c:HotKeyHelper
+            Command="{Binding DeleteActiveItemCommand}"
+            HotKey="Ctrl+Delete">
+        </c:HotKeyHelper>
+
+
+        <!--  Header  -->
+        <c:PageHeader
+            DockPanel.Dock="Top"
+            Icon="{Binding PageIcon}"
+            Text="{Binding PageHeader}">
+        </c:PageHeader>
+
+        <!--  Search & Add  -->
+        <Grid
+            DockPanel.Dock="Top"
+            Margin="0,24,0,0"
+            ColumnDefinitions="*,24,Auto">
+            <TextBox
+                Name="SearchTextBox"
+                Grid.Column="0"
+                MaxLength="{Binding MaxSearchTextLength}"
+                Classes="it-textbox has-clear-button"
+                Text="{Binding SearchText, Mode=TwoWay}"
+                ToolTip.Tip="{f:GetText users.tooltip-search}"
+                Watermark="{f:GetText users.hint-search}">
+            </TextBox>
+            <Button
+                Grid.Column="2"
+                Classes="it-button-form accent"
+                Command="{Binding CreateCommand}"
+                Content="{f:GetText users.button-create}"
+                HotKey="Ctrl+T"
+                ToolTip.Tip="{f:GetText users.tooltip-create}">
+            </Button>
+        </Grid>
+
+        <!--  Items  -->
+        <ProgressBar
+            DockPanel.Dock="Top"
+            Margin="0,24,0,0"
+            IsIndeterminate="{Binding IsBusyProgressVisible}"
+            IsVisible="{Binding IsBusyProgressVisible}">
+        </ProgressBar>
+
+        <ScrollViewer
+            Margin="0,24,0,0"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Users}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type v:UserListItemViewModel}">
+                        <c:ListItem
+                            Icon="{x:Static v:UsersIcons.User}"
+                            DeleteCommand="{Binding Parent.DeleteCommand}"
+                            DeleteToolTip="{f:GetText users.tooltip-delete}"
+                            EditCommand="{Binding Parent.EditCommand}"
+                            EditToolTip="{f:GetText users.tooltip-edit}"
+                            IsActive="{Binding IsActive}"
+                            IsDeleteEnabled="{Binding CanDelete}"
+                            IsEditEnabled="{Binding CanEdit}"
+                            IsTabStop="False"
+                            PrimaryText="{Binding Name}"
+                            SecondaryText="{Binding Roles}"
+                            TertiaryText="{Binding LastModified}">
+                        </c:ListItem>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </DockPanel>
+
+</UserControl>

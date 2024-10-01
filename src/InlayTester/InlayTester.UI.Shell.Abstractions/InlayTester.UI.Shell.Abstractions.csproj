@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" />
+        <PackageReference Include="Material.Icons.Avalonia" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Amarok\Amarok.Fabric.Avalonia.Abstractions\Amarok.Fabric.Avalonia.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Common\InlayTester.UI.Common.csproj" />
+    </ItemGroup>
+
+</Project>

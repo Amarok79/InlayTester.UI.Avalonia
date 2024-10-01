@@ -1,0 +1,22 @@
+﻿<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel Orientation="Vertical">
+                <Button Content="Close" />
+                <Button
+                    Classes="it-button-form"
+                    Content="Close" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+
+    <Style Selector="Button.it-button-form">
+        <Setter Property="MinWidth" Value="96" />
+        <Setter Property="Height" Value="34" />
+    </Style>
+
+</Styles>

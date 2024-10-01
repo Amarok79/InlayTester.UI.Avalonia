@@ -1,0 +1,9 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "InlayTester.Api.Contracts";
+
+
+message ApiRole {
+    string id = 1;
+    string name = 2;
+}

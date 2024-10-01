@@ -1,0 +1,37 @@
+<UserControl
+    x:Class="InlayTester.UI.Shell.Overlay"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Shell"
+    x:DataType="v:OverlayViewModel"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+
+
+    <Grid
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Background="#90161616"
+        ColumnDefinitions="*"
+        IsHitTestVisible="True"
+        IsTabStop="False"
+        IsVisible="{Binding IsOpen}">
+
+        <a:ShadowChrome
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Elevation="12"
+            ShadowOpacity="0.8">
+
+            <ContentControl Content="{Binding Content}" />
+
+        </a:ShadowChrome>
+    </Grid>
+
+</UserControl>

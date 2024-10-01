@@ -1,0 +1,139 @@
+<UserControl
+    x:Class="InlayTester.UI.Pages.Users.UserEditView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:InlayTester.UI.Pages.Users"
+    x:DataType="v:UserEditViewModel"
+    d:DesignHeight="768"
+    d:DesignWidth="1024"
+    mc:Ignorable="d">
+
+
+    <Design.DataContext>
+        <v:UserEditViewModel
+            MachineOperator="True"
+            PageHeader="#New User"
+            PageIcon="{x:Static v:UsersIcons.NewUser}">
+        </v:UserEditViewModel>
+    </Design.DataContext>
+
+
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Disabled"
+        VerticalScrollBarVisibility="Auto">
+
+        <StackPanel
+            Margin="96,32"
+            IsEnabled="{Binding !IsBusy}"
+            Orientation="Vertical">
+
+            <!--  Header  -->
+            <c:PageHeader
+                Icon="{Binding PageIcon}"
+                Margin="0,0,0,16"
+                Text="{Binding PageHeader}">
+            </c:PageHeader>
+
+            <ProgressBar
+                Margin="0,0,0,16"
+                IsIndeterminate="{Binding IsBusyProgressVisible}"
+                IsVisible="{Binding IsBusyProgressVisible}">
+            </ProgressBar>
+
+            <!--  Name  -->
+            <c:TextField
+                Icon="{x:Static v:UsersIcons.Name}"
+                IsEnabled="{Binding IsNameEnabled}"
+                Kind="Text"
+                Label="{f:GetText users.label-name}"
+                MaxLength="{Binding MaxNameLength} "
+                Placeholder="{f:GetText users.hint-name}"
+                Text="{Binding Name, Mode=TwoWay}" />
+
+            <!--  Passwords  -->
+            <c:TextField
+                Icon="{x:Static v:UsersIcons.Password}"
+                Margin="0,24,0,0"
+                CanRevealPassword="{Binding IsCreateNew}"
+                Kind="Password"
+                Label="{f:GetText users.label-password1}"
+                MaxLength="{Binding MaxPasswordLength}"
+                Placeholder="{f:GetText users.hint-password1}"
+                Text="{Binding Password1, Mode=TwoWay}" />
+
+            <c:TextField
+                Margin="0,12,0,0"
+                CanRevealPassword="{Binding IsCreateNew}"
+                Kind="Password"
+                Label="{f:GetText users.label-password2}"
+                MaxLength="{Binding MaxPasswordLength}"
+                Placeholder="{f:GetText users.hint-password2}"
+                Text="{Binding Password2, Mode=TwoWay}" />
+
+            <!--  Roles  -->
+            <c:Field
+                Icon="{x:Static v:UsersIcons.Roles}"
+                Margin="0,24,0,0"
+                Errors="{Binding Roles}"
+                IsEnabled="{Binding IsRolesEnabled}"
+                Label="{f:GetText users.label-roles}">
+                <StackPanel
+                    Margin="0,6,0,0"
+                    Orientation="Vertical"
+                    Spacing="8">
+                    <CheckBox
+                        Content="{f:GetText users.label-machine-operator}"
+                        IsChecked="{Binding MachineOperator, Mode=TwoWay}">
+                    </CheckBox>
+                    <CheckBox
+                        Content="{f:GetText users.label-machine-setter}"
+                        IsChecked="{Binding MachineSetter, Mode=TwoWay}">
+                    </CheckBox>
+                    <CheckBox
+                        Content="{f:GetText users.label-administrator}"
+                        IsChecked="{Binding Administrator, Mode=TwoWay}">
+                    </CheckBox>
+                </StackPanel>
+            </c:Field>
+
+            <!--  Notes  -->
+            <c:TextField
+                Icon="{x:Static v:UsersIcons.Notes}"
+                Margin="0,24,0,0"
+                Kind="MultiLine"
+                Label="{f:GetText users.label-notes}"
+                MaxLength="{Binding MaxNotesLength}"
+                Placeholder="{f:GetText users.hint-notes}"
+                Text="{Binding Notes, Mode=TwoWay}" />
+
+            <!--  Buttons  -->
+            <StackPanel
+                Margin="0,24,0,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Spacing="16">
+                <Button
+                    Classes="it-button-form theme-soft"
+                    Command="{Binding CancelCommand}"
+                    Content="{Binding CancelLabel}"
+                    IsCancel="True"
+                    ToolTip.Tip="Esc">
+                </Button>
+                <Button
+                    Classes="it-button-form theme-solid accent"
+                    Command="{Binding AcceptCommand}"
+                    Content="{Binding AcceptLabel}"
+                    IsDefault="True"
+                    ToolTip.Tip="Enter">
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>

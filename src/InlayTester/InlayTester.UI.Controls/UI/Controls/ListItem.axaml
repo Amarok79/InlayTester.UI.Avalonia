@@ -1,0 +1,163 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+
+
+    <Design.PreviewWith>
+        <StackPanel Width="800">
+            <StackPanel
+                Margin="50"
+                Background="{DynamicResource SystemRegionBrush}">
+                <c:ListItem
+                    Icon="User"
+                    IsDeleteEnabled="True"
+                    IsEditEnabled="True"
+                    PrimaryText="Some Text"
+                    SecondaryText="Machine operator, machine setter, administrator"
+                    TertiaryText="modified by on" />
+                <c:ListItem
+                    Icon="User"
+                    IsDeleteEnabled="False"
+                    IsEditEnabled="False"
+                    PrimaryText="Some Text"
+                    SecondaryText="Machine operator, machine setter, administrator"
+                    TertiaryText="modified by on" />
+            </StackPanel>
+        </StackPanel>
+    </Design.PreviewWith>
+
+
+    <ControlTheme
+        x:Key="{x:Type c:ListItem}"
+        TargetType="c:ListItem">
+
+        <Setter Property="Template">
+            <ControlTemplate>
+
+                <Button
+                    x:Name="PART_Border"
+                    Height="80"
+                    Margin="0,0,0,8"
+                    HorizontalContentAlignment="Stretch"
+                    Background="{a:ThemeResource ButtonBackgroundBrushSoftDisabled}"
+                    Classes="theme-soft"
+                    Command="{TemplateBinding Command}"
+                    CornerRadius="{a:ThemeResource ButtonCornerRadius}"
+                    IsPointerOver="{Binding IsActive, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWayToSource}"
+                    IsTabStop="{TemplateBinding IsTabStop}">
+
+                    <Grid
+                        ColumnDefinitions="12,Auto,12,*,Auto,12"
+                        RowDefinitions="12,Auto,0,*,12">
+
+                        <i:MaterialIcon
+                            Grid.Row="1"
+                            Grid.RowSpan="3"
+                            Grid.Column="1"
+                            Width="32"
+                            Height="32"
+                            Kind="{TemplateBinding Icon}">
+                        </i:MaterialIcon>
+
+                        <TextBlock
+                            Name="PART_Primary"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Classes="theme-text-heading size-sm accent"
+                            Text="{TemplateBinding PrimaryText}"
+                            TextTrimming="CharacterEllipsis"
+                            TextWrapping="NoWrap">
+                            <TextBlock.Styles>
+                                <Style Selector="TextBlock#PART_Primary:disabled">
+                                    <Setter Property="Foreground" Value="{a:ThemeResource ControlForegroundBrushSoftAccentDisabled}" />
+                                </Style>
+                            </TextBlock.Styles>
+                        </TextBlock>
+
+                        <DockPanel
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            LastChildFill="False">
+
+                            <TextBlock
+                                DockPanel.Dock="Left"
+                                Classes="theme-text-body size-sm"
+                                Text="{TemplateBinding SecondaryText}"
+                                TextTrimming="CharacterEllipsis"
+                                TextWrapping="NoWrap">
+                            </TextBlock>
+
+                            <TextBlock
+                                DockPanel.Dock="Right"
+                                Classes="theme-text-body size-xs"
+                                Foreground="{a:ThemeResource FormControlMessageForegroundBrush}"
+                                Text="{TemplateBinding TertiaryText}"
+                                TextWrapping="NoWrap">
+                            </TextBlock>
+
+                        </DockPanel>
+
+                        <Panel
+                            Grid.Row="0"
+                            Grid.RowSpan="5"
+                            Grid.Column="4"
+                            IsVisible="{TemplateBinding IsCommandAreaVisible}">
+                            <DockPanel
+                                IsVisible="{Binding ElementName=PART_Border, Path=IsPointerOver}"
+                                LastChildFill="False">
+
+                                <Separator
+                                    DockPanel.Dock="Left"
+                                    Width="1"
+                                    Height="64"
+                                    Margin="12,0,12,0"
+                                    Background="{a:ThemeResource ButtonBorderBrushOutlinePointerOver}">
+                                </Separator>
+
+                                <Button
+                                    DockPanel.Dock="Right"
+                                    VerticalAlignment="Center"
+                                    Classes="theme-subtle"
+                                    Command="{TemplateBinding EditCommand}"
+                                    CommandParameter="{ReflectionBinding}"
+                                    Focusable="False"
+                                    IsEnabled="{TemplateBinding IsEditEnabled}"
+                                    ToolTip.Tip="{TemplateBinding EditToolTip}">
+                                    <i:MaterialIcon
+                                        Width="20"
+                                        Height="20"
+                                        Kind="Edit">
+                                    </i:MaterialIcon>
+                                </Button>
+
+                                <Button
+                                    DockPanel.Dock="Right"
+                                    VerticalAlignment="Center"
+                                    Classes="theme-subtle"
+                                    Command="{TemplateBinding DeleteCommand}"
+                                    CommandParameter="{ReflectionBinding}"
+                                    Focusable="False"
+                                    IsEnabled="{TemplateBinding IsDeleteEnabled}"
+                                    ToolTip.Tip="{TemplateBinding DeleteToolTip}">
+                                    <i:MaterialIcon
+                                        Width="20"
+                                        Height="20"
+                                        Kind="DeleteForever">
+                                    </i:MaterialIcon>
+                                </Button>
+
+                            </DockPanel>
+                        </Panel>
+
+                    </Grid>
+                </Button>
+
+            </ControlTemplate>
+        </Setter>
+
+    </ControlTheme>
+
+</ResourceDictionary>

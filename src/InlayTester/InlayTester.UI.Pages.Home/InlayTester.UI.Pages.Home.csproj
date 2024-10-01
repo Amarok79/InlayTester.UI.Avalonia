@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" />
+        <PackageReference Include="CommunityToolkit.Mvvm" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Amarok\Amarok.Fabric.Avalonia.Abstractions\Amarok.Fabric.Avalonia.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.Domain\InlayTester.Domain.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Common\InlayTester.UI.Common.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Controls\InlayTester.UI.Controls.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Pages.Home.Abstractions\InlayTester.UI.Pages.Home.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Pages.Users.Abstractions\InlayTester.UI.Pages.Users.Abstractions.csproj" />
+        <ProjectReference Include="..\InlayTester.UI.Shell.Abstractions\InlayTester.UI.Shell.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>

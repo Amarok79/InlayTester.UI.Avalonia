@@ -1,0 +1,84 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
+    xmlns:c="http://inlaytester/ui/controls"
+    xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+
+
+    <Design.PreviewWith>
+        <StackPanel
+            Width="400"
+            Spacing="10">
+            <StackPanel Background="{DynamicResource SystemRegionBrush}">
+                <c:Field
+                    Icon="AccountBadge"
+                    Label="label">
+                    <StackPanel Spacing="4">
+                        <CheckBox Content="23424">
+                        </CheckBox>
+                        <CheckBox Content="23424">
+                        </CheckBox>
+                        <CheckBox Content="23424">
+                        </CheckBox>
+                    </StackPanel>
+                </c:Field>
+            </StackPanel>
+        </StackPanel>
+    </Design.PreviewWith>
+
+
+    <ControlTheme
+        x:Key="{x:Type c:Field}"
+        TargetType="c:Field">
+
+        <Setter Property="Template">
+            <ControlTemplate>
+
+                <Grid
+                    ColumnDefinitions="28,*"
+                    RowDefinitions="Auto,Auto">
+
+                    <Label
+                        Name="PART_Label"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="2,0,0,4"
+                        Classes="theme-form-control-label"
+                        Content="{TemplateBinding Label}"
+                        Foreground="{a:ThemeResource FormControlLabelForegroundBrush}"
+                        Target="{Binding #PART_Content}">
+                    </Label>
+
+                    <i:MaterialIcon
+                        DockPanel.Dock="Left"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Width="16"
+                        Height="16"
+                        Margin="0,8,8,0"
+                        VerticalAlignment="Top"
+                        Foreground="{a:ThemeResource ControlForegroundBrushOutlineAccent}"
+                        IsVisible="{TemplateBinding Icon,
+                                                    Converter={x:Static ObjectConverters.IsNotNull}}"
+                        Kind="{TemplateBinding Icon}">
+                    </i:MaterialIcon>
+
+                    <DataValidationErrors
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Errors="{TemplateBinding (DataValidationErrors.Errors)}">
+                        <ContentPresenter
+                            Name="PART_Content"
+                            Content="{TemplateBinding Content}">
+                        </ContentPresenter>
+                    </DataValidationErrors>
+
+                </Grid>
+
+            </ControlTemplate>
+        </Setter>
+
+    </ControlTheme>
+
+</ResourceDictionary>
