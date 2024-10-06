@@ -145,14 +145,14 @@
                         <Button
                             Name="CancelButton"
                             Margin="0,0,12,0"
-                            Classes="it-button-form theme-soft"
+                            Classes="it-button theme-soft"
                             Command="{Binding CancelCommand}"
                             Content="{Binding CancelText}"
                             IsVisible="{Binding IsCancelVisible}">
                         </Button>
                         <Button
                             Name="AcceptButton"
-                            Classes="it-button-form theme-solid"
+                            Classes="it-button theme-solid"
                             Classes.accent="{Binding IsAccentColorStyle}"
                             Classes.danger="{Binding IsDangerColorStyle}"
                             Classes.warning="{Binding IsWarningColorStyle}"

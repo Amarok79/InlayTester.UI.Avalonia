@@ -51,7 +51,7 @@
                 IsEnabled="{Binding IsNameEnabled}"
                 Kind="Text"
                 Label="{f:GetText users.label-name}"
-                MaxLength="{Binding MaxNameLength} "
+                MaxLength="{Binding MaxNameLength}"
                 Placeholder="{f:GetText users.hint-name}"
                 Text="{Binding Name, Mode=TwoWay}" />
 
@@ -118,14 +118,14 @@
                 Orientation="Horizontal"
                 Spacing="16">
                 <Button
-                    Classes="it-button-form theme-soft"
+                    Classes="it-button theme-soft"
                     Command="{Binding CancelCommand}"
                     Content="{Binding CancelLabel}"
                     IsCancel="True"
                     ToolTip.Tip="Esc">
                 </Button>
                 <Button
-                    Classes="it-button-form theme-solid accent"
+                    Classes="it-button theme-solid accent"
                     Command="{Binding AcceptCommand}"
                     Content="{Binding AcceptLabel}"
                     IsDefault="True"

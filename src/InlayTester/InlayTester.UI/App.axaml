@@ -5,6 +5,7 @@
     xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
     xmlns:g="using:ActiproSoftware.UI.Avalonia.Themes.Generation"
     xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+    xmlns:v="clr-namespace:InlayTester"
     RequestedThemeVariant="Dark">
 
     <Application.Resources>
@@ -18,11 +19,7 @@
     <Application.Styles>
         <a:ModernTheme>
             <a:ModernTheme.Definition>
-                <g:ThemeDefinition
-                    BaseFontSize="15"
-                    ButtonAppearanceKind="Solid"
-                    UserInterfaceDensity="Spacious">
-                </g:ThemeDefinition>
+                <v:AppThemeDefinition />
             </a:ModernTheme.Definition>
         </a:ModernTheme>
 

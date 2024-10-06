@@ -15,6 +15,7 @@
                     Icon="User"
                     IsDeleteEnabled="True"
                     IsEditEnabled="True"
+                    IsEnabled="False"
                     PrimaryText="Some Text"
                     SecondaryText="Machine operator, machine setter, administrator"
                     TertiaryText="modified by on" />
@@ -43,9 +44,12 @@
                     Margin="0,0,0,8"
                     HorizontalContentAlignment="Stretch"
                     Background="{a:ThemeResource ButtonBackgroundBrushSoftDisabled}"
+                    BorderBrush="{a:ThemeResource Container3BorderBrush}"
+                    BorderThickness="{a:ThemeResource ButtonBorderThickness}"
                     Classes="theme-soft"
                     Command="{TemplateBinding Command}"
                     CornerRadius="{a:ThemeResource ButtonCornerRadius}"
+                    IsEnabled="{TemplateBinding IsEnabled}"
                     IsPointerOver="{Binding IsActive, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWayToSource}"
                     IsTabStop="{TemplateBinding IsTabStop}">
 
@@ -54,12 +58,18 @@
                         RowDefinitions="12,Auto,0,*,12">
 
                         <i:MaterialIcon
+                            Name="PART_Icon"
                             Grid.Row="1"
                             Grid.RowSpan="3"
                             Grid.Column="1"
                             Width="32"
                             Height="32"
                             Kind="{TemplateBinding Icon}">
+                            <i:MaterialIcon.Styles>
+                                <Style Selector="i|MaterialIcon#PART_Icon:disabled">
+                                    <Setter Property="Foreground" Value="{a:ThemeResource ButtonForegroundBrushDisabled}" />
+                                </Style>
+                            </i:MaterialIcon.Styles>
                         </i:MaterialIcon>
 
                         <TextBlock
@@ -72,7 +82,7 @@
                             TextWrapping="NoWrap">
                             <TextBlock.Styles>
                                 <Style Selector="TextBlock#PART_Primary:disabled">
-                                    <Setter Property="Foreground" Value="{a:ThemeResource ControlForegroundBrushSoftAccentDisabled}" />
+                                    <Setter Property="Foreground" Value="{a:ThemeResource ButtonForegroundBrushDisabled}" />
                                 </Style>
                             </TextBlock.Styles>
                         </TextBlock>
@@ -83,19 +93,33 @@
                             LastChildFill="False">
 
                             <TextBlock
+                                Name="PART_Secondary"
                                 DockPanel.Dock="Left"
                                 Classes="theme-text-body size-sm"
                                 Text="{TemplateBinding SecondaryText}"
                                 TextTrimming="CharacterEllipsis"
                                 TextWrapping="NoWrap">
+                                <TextBlock.Styles>
+                                    <Style Selector="TextBlock#PART_Secondary:disabled">
+                                        <Setter Property="Foreground" Value="{a:ThemeResource ButtonForegroundBrushDisabled}" />
+                                    </Style>
+                                </TextBlock.Styles>
                             </TextBlock>
 
                             <TextBlock
+                                Name="PART_Tertiary"
                                 DockPanel.Dock="Right"
                                 Classes="theme-text-body size-xs"
-                                Foreground="{a:ThemeResource FormControlMessageForegroundBrush}"
                                 Text="{TemplateBinding TertiaryText}"
                                 TextWrapping="NoWrap">
+                                <TextBlock.Styles>
+                                    <Style Selector="TextBlock#PART_Tertiary">
+                                        <Setter Property="Foreground" Value="{a:ThemeResource FormControlMessageForegroundBrush}" />
+                                    </Style>
+                                    <Style Selector="TextBlock#PART_Tertiary:disabled">
+                                        <Setter Property="Foreground" Value="{a:ThemeResource ButtonForegroundBrushDisabled}" />
+                                    </Style>
+                                </TextBlock.Styles>
                             </TextBlock>
 
                         </DockPanel>

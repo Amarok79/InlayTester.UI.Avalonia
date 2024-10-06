@@ -7,14 +7,14 @@
             <StackPanel Orientation="Vertical">
                 <Button Content="Close" />
                 <Button
-                    Classes="it-button-form"
+                    Classes="it-button"
                     Content="Close" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
 
 
-    <Style Selector="Button.it-button-form">
+    <Style Selector="Button.it-button">
         <Setter Property="MinWidth" Value="96" />
         <Setter Property="Height" Value="34" />
     </Style>

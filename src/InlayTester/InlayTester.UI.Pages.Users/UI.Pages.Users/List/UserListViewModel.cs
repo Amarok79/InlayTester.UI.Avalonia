@@ -38,7 +38,7 @@ public partial class UserListViewModel : PageViewModel
 
         static Func<UserListItemViewModel, Boolean> filterFunc(String? searchText)
         {
-            return searchText.IsNullOrWhitespace() ? _ => true : x => x.User.Filter(searchText!);
+            return x => x.User.Filter(searchText);
         }
     }
 
@@ -48,6 +48,7 @@ public partial class UserListViewModel : PageViewModel
         IsBusy = true;
 
         Shell.IsHomeButtonVisible = true;
+        Shell.IsUserStatusItemEnabled = false;
 
         Shell.PageTitle = Loc["users.page-title"];
 
@@ -60,9 +61,7 @@ public partial class UserListViewModel : PageViewModel
     {
         try
         {
-            var users = await UserManager.QueryUsersAsync();
-
-            mUsersSource.AddRange(users.Select(x => x.ToViewModel(this, Loc)));
+            await _LoadUsers();
 
             IsBusy = false;
         }
@@ -74,6 +73,15 @@ public partial class UserListViewModel : PageViewModel
             await Shell.Navigation.GoToAsync(HomePages.Home, NavigationDirection.Backward);
         }
     }
+
+    private async Task _LoadUsers()
+    {
+        var users = await UserManager.QueryUsersAsync();
+
+        mUsersSource.Clear();
+        mUsersSource.AddRange(users.Select(x => x.ToViewModel(this, Loc)));
+    }
+
 
     protected override void Dispose(Boolean disposing)
     {

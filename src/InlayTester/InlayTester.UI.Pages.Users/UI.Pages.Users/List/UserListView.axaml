@@ -58,15 +58,15 @@
             <TextBox
                 Name="SearchTextBox"
                 Grid.Column="0"
-                MaxLength="{Binding MaxSearchTextLength}"
                 Classes="it-textbox has-clear-button"
+                MaxLength="{Binding MaxSearchTextLength}"
                 Text="{Binding SearchText, Mode=TwoWay}"
                 ToolTip.Tip="{f:GetText users.tooltip-search}"
                 Watermark="{f:GetText users.hint-search}">
             </TextBox>
             <Button
                 Grid.Column="2"
-                Classes="it-button-form accent"
+                Classes="it-button accent"
                 Command="{Binding CreateCommand}"
                 Content="{f:GetText users.button-create}"
                 HotKey="Ctrl+T"

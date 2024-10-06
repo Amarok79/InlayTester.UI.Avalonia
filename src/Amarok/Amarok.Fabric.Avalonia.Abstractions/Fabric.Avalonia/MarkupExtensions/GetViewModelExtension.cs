@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
 
 using Amarok.Fabric.Avalonia.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
 
 
 namespace Amarok.Fabric.Avalonia.MarkupExtensions;
@@ -29,7 +28,7 @@ public sealed class GetViewModelExtension
 
     public Object ProvideValue()
     {
-        var viewFactory = ServiceProviderLocator.Get().GetRequiredService<IViewFactory>();
+        var viewFactory = ServiceProviderLocator.ViewFactory;
 
         return mType != null
             ? viewFactory.CreateViewModel(mType)

@@ -13,7 +13,7 @@ public class ServiceProviderLocatorTests : ApplicationTests
     [AvaloniaTest]
     public void Get()
     {
-        var sp = ServiceProviderLocator.Get();
+        var sp = ServiceProviderLocator.ServiceProvider;
 
         Check.That(sp).IsNotNull();
     }
@@ -21,6 +21,6 @@ public class ServiceProviderLocatorTests : ApplicationTests
     [Test]
     public void Get_Failed()
     {
-        Check.ThatCode(() => ServiceProviderLocator.Get()).Throws<InvalidOperationException>();
+        Check.ThatCode(() => ServiceProviderLocator.ServiceProvider).Throws<InvalidOperationException>();
     }
 }

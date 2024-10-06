@@ -61,14 +61,14 @@
                 Orientation="Horizontal"
                 Spacing="16">
                 <Button
-                    Classes="it-button-form theme-soft"
+                    Classes="it-button theme-soft"
                     Command="{Binding CancelCommand}"
                     Content="{f:GetText login.button-cancel}"
                     IsCancel="True"
                     ToolTip.Tip="{f:GetText login.tooltip-cancel}">
                 </Button>
                 <Button
-                    Classes="it-button-form theme-solid accent"
+                    Classes="it-button theme-solid accent"
                     Command="{Binding LoginCommand}"
                     Content="{f:GetText login.button-login}"
                     IsDefault="True"

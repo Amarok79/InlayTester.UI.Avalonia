@@ -8,7 +8,7 @@ namespace Amarok.Fabric;
 
 /// <summary>
 ///     Defines a transient lifetime for exported types, meaning new instances are constructed every
-///     time the type is resolved.
+///     time a type is resolved.
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
 public sealed class TransientAttribute : TransientReuseAttribute

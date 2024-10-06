@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
 
 using System.Collections.Concurrent;
+using Amarok.Fabric;
 using Microsoft.Extensions.Localization;
 using StringTokenFormatter;
 using StringTokenFormatter.Impl;
@@ -8,7 +9,7 @@ using Tommy;
 using Tommy.Extensions;
 
 
-namespace Amarok.Fabric.Avalonia;
+namespace InlayTester.Services;
 
 
 [Export<IStringLocalizer>]

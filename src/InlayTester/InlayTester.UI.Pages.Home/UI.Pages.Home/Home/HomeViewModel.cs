@@ -19,13 +19,11 @@ public partial class HomeViewModel : PageViewModel
     [Import]
     public required IUserSessionManager UserSessionManager { get; set; }
 
-    [Import]
-    public required IThreadHelper ThreadHelper { get; set; }
-
 
     protected override void OnInitialize()
     {
         Shell.IsUserStatusItemEnabled = true;
+        Shell.IsHomeButtonVisible = false;
 
         Shell.PageTitle = Loc["home.page-title"];
     }
@@ -33,9 +31,9 @@ public partial class HomeViewModel : PageViewModel
 
     protected override async Task OnEnteringAsync()
     {
-        _Refresh();
+        _UpdateCurrentUser();
 
-        Disposables.Add(UserSessionManager.CurrentChanged.Subscribe(_ => _Refresh()));
+        Disposables.Add(UserSessionManager.CurrentChanged.Subscribe(_UpdateCurrentUser));
 
         if (CurrentUser == null)
         {
@@ -47,7 +45,7 @@ public partial class HomeViewModel : PageViewModel
     }
 
 
-    private void _Refresh()
+    private void _UpdateCurrentUser()
     {
         CurrentUser = UserSessionManager.Current;
     }

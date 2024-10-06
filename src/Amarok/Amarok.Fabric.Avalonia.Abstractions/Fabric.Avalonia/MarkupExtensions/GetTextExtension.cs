@@ -1,7 +1,6 @@
 ﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
 
 using Amarok.Fabric.Avalonia.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 
 
@@ -24,8 +23,6 @@ public sealed class GetTextExtension
 
     public String ProvideValue()
     {
-        var localizer = ServiceProviderLocator.Get().GetRequiredService<IStringLocalizer>();
-
-        return localizer.GetString(mResourceKey);
+        return ServiceProviderLocator.Localizer.GetString(mResourceKey);
     }
 }

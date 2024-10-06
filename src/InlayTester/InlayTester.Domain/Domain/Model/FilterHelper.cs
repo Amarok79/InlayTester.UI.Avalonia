@@ -5,8 +5,11 @@ namespace InlayTester.Domain;
 
 internal static class FilterHelper
 {
-    public static Boolean Filter(String text, params String[] properties)
+    public static Boolean Filter(String? text, params String[] properties)
     {
+        if (text == null)
+            return true;
+
         text = text.Trim();
 
         return properties.Any(x => x.Contains(text, StringComparison.OrdinalIgnoreCase));

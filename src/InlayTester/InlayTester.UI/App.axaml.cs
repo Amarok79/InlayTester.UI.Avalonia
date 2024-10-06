@@ -7,6 +7,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform;
 using CommunityToolkit.Mvvm.Input;
+using InlayTester.Services;
 using InlayTester.UI.Pages.Home;
 using InlayTester.UI.Shell;
 using Microsoft.Extensions.Configuration;

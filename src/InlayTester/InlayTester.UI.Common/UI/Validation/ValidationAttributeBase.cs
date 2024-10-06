@@ -4,8 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using Amarok.Fabric.Avalonia;
 using Amarok.Fabric.Avalonia.Infrastructure;
 using CommunityToolkit.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 
 
 namespace InlayTester.UI;
@@ -29,8 +27,6 @@ public abstract class ValidationAttributeBase : ValidationAttribute
 
     protected ValidationResult Error(Localizable errorMessage)
     {
-        var localizer = ServiceProviderLocator.Get().GetRequiredService<IStringLocalizer>();
-
-        return new ValidationResult(errorMessage.GetString(localizer));
+        return new ValidationResult(errorMessage.GetString(ServiceProviderLocator.Localizer));
     }
 }

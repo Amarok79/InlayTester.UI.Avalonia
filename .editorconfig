@@ -5,6 +5,7 @@ root = true
 
 dotnet_diagnostic.ca1031.severity = none
 dotnet_diagnostic.ca1062.severity = none
+dotnet_diagnostic.ca1707.severity = none
 dotnet_diagnostic.ca1720.severity = none
 dotnet_diagnostic.ca1725.severity = none
 dotnet_diagnostic.ca1805.severity = none

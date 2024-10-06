@@ -30,6 +30,9 @@ public partial class UserEditViewModel : PageViewModel
     {
         IsBusy = true;
 
+        Shell.IsHomeButtonVisible = false;
+        Shell.IsUserStatusItemEnabled = false;
+
         Shell.PageTitle = Loc["users.page-title"];
 
         PageHeader = Loc[IsCreateNew ? "users.page-header-new" : "users.page-header-edit"];
@@ -148,7 +151,7 @@ public partial class UserEditViewModel : PageViewModel
         if (IsCreateNew)
             await _SaveNewUser();
         else
-            await _UpdateExistingUser();
+            await _SaveExistingUser();
 
         await Shell.Navigation.GoToAsync(UserPages.List, NavigationDirection.Backward);
     }
@@ -160,7 +163,7 @@ public partial class UserEditViewModel : PageViewModel
         await UserManager.AddUserAsync(user);
     }
 
-    private async Task _UpdateExistingUser()
+    private async Task _SaveExistingUser()
     {
         var user = this.ToModel(UserSessionManager.GetCurrentUserName() ?? String.Empty);
 

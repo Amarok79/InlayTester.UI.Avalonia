@@ -1,0 +1,17 @@
+<Project>
+
+    <PropertyGroup>
+        <Nullable>Enable</Nullable>
+        <ImplicitUsings>Enable</ImplicitUsings>
+        <IsPackable>False</IsPackable>
+        <IsPublishable>False</IsPublishable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+        <GenerateSatelliteAssembliesForCore>True</GenerateSatelliteAssembliesForCore>
+        <OptimizeImplicitlyTriggeredBuild>True</OptimizeImplicitlyTriggeredBuild>
+        <AnalysisLevel>latest-all</AnalysisLevel>
+    </PropertyGroup>
+
+</Project>

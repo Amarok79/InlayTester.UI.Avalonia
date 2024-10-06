@@ -54,7 +54,7 @@ public sealed record class User(Id Id, String Name)
         return !IsSupervisor;
     }
 
-    public Boolean Filter(String text)
+    public Boolean Filter(String? text)
     {
         return FilterHelper.Filter(text, Name, RolesAsText, ModifiedText);
     }
