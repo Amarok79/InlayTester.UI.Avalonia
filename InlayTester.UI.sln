@@ -1,18 +1,19 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 17
+# Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Solution Items", ".Solution Items", "{D90E4723-E06D-4635-82E2-62F6BC4E6D4B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
 		InlayTester.UI.sln.DotSettings = InlayTester.UI.sln.DotSettings
 		InlayTester.UI.v3.ncrunchsolution = InlayTester.UI.v3.ncrunchsolution
 		LICENSE = LICENSE
 		README.md = README.md
 		_cleanup.cmd = _cleanup.cmd
-		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Amarok", "Amarok", "{DE9FE359-AFA3-4AB3-9AC1-28AD004AF507}"
