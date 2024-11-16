@@ -9,6 +9,7 @@
         <IsPackable>False</IsPackable>
         <IsPublishable>False</IsPublishable>
         <IsTestProject>True</IsTestProject>
+        <BaseOutputPath>$(RootDir)bin\tests\$(MSBuildProjectName)</BaseOutputPath>
     </PropertyGroup>
 
     <ItemGroup>

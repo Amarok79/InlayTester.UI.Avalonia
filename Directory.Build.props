@@ -14,4 +14,8 @@
         <AnalysisLevel>latest-all</AnalysisLevel>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <RootDir>$([MSBuild]::NormalizeDirectory($(MSBuildThisFileDirectory)))</RootDir>
+    </PropertyGroup>
+
 </Project>
