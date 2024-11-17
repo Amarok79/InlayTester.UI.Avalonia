@@ -28,7 +28,7 @@ public class TestApp : Application,
     }
 }
 
-public class TestAppBuilder
+public static class TestAppBuilder
 {
     public static AppBuilder BuildAvaloniaApp()
     {
