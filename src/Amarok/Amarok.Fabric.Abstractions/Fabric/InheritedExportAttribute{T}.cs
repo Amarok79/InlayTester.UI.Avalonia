@@ -7,8 +7,8 @@ namespace Amarok.Fabric;
 
 
 /// <summary>
-///     Specifies that a type provides a particular export, and that subclasses of that type will also
-///     provide that export.
+///     Specifies that a type provides a particular export, and that subclasses of that type will also provide
+///     that export.
 /// </summary>
 /// <typeparam name="T">
 ///     The type to export.

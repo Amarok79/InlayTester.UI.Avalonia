@@ -46,16 +46,16 @@ public partial class UserStatusItemViewModel : ViewModelWithActivation
         if (current == null)
         {
             IsLoggedIn = false;
-            Icon = MaterialIconKind.Login;
-            Text = Loc["shell.button-login"];
-            ToolTip = Loc["shell.tooltip-logged-out"];
+            Icon       = MaterialIconKind.Login;
+            Text       = Loc["shell.button-login"];
+            ToolTip    = Loc["shell.tooltip-logged-out"];
         }
         else
         {
             IsLoggedIn = true;
-            Icon = MaterialIconKind.User;
-            Text = current.Name;
-            ToolTip = Loc["shell.tooltip-logged-in", current.Name];
+            Icon       = MaterialIconKind.User;
+            Text       = current.Name;
+            ToolTip    = Loc["shell.tooltip-logged-in", current.Name];
         }
     }
 

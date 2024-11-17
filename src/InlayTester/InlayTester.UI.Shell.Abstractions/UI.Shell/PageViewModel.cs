@@ -41,7 +41,7 @@ public abstract class PageViewModel : ViewModelWithBusyProgress,
     {
         Arg = arg;
 
-        Shell.IsHomeButtonVisible = false;
+        Shell.IsHomeButtonVisible     = false;
         Shell.IsUserStatusItemEnabled = false;
 
         OnInitialize();

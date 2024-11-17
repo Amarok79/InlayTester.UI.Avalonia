@@ -60,7 +60,7 @@ public partial class OverlayViewModel : ObservableObject,
         LayerManager.ShowOverlay();
 
         Content = viewModel;
-        IsOpen = true;
+        IsOpen  = true;
 
         Logger.LogInformation("Opened {ViewModel} overlay", viewModel.GetType().Name);
 
@@ -70,16 +70,12 @@ public partial class OverlayViewModel : ObservableObject,
         await registration.DisposeAsync();
 
 
-        IsOpen = false;
+        IsOpen  = false;
         Content = null;
 
         LayerManager.HideOverlay();
 
-        Logger.LogInformation(
-            "Closed {ViewModel} overlay -> Result: {Result}",
-            viewModel.GetType().Name,
-            result
-        );
+        Logger.LogInformation("Closed {ViewModel} overlay -> Result: {Result}", viewModel.GetType().Name, result);
 
 
         return result;

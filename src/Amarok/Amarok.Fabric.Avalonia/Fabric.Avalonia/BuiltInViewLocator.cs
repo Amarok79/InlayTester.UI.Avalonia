@@ -25,10 +25,7 @@ internal sealed class BuiltInViewLocator : IViewLocator
             data = data.GetType();
 
         if (data is Type type)
-        {
-            return typeof(IViewAware).IsAssignableFrom(type) ||
-                   Attribute.IsDefined(type, typeof(ViewAttribute));
-        }
+            return typeof(IViewAware).IsAssignableFrom(type) || Attribute.IsDefined(type, typeof(ViewAttribute));
 
         return false;
     }

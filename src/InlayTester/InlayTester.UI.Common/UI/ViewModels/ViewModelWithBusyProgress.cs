@@ -74,9 +74,9 @@ public abstract partial class ViewModelWithBusyProgress : ViewModelWithBusy
 
     private void _CreateTimer()
     {
-        mTimer = new DispatcherTimer();
-        mTimer.Interval = TimeSpan.FromMilliseconds(500);
-        mTimer.Tick += _TimerTick;
+        mTimer          =  new DispatcherTimer();
+        mTimer.Interval =  TimeSpan.FromMilliseconds(500);
+        mTimer.Tick     += _TimerTick;
     }
 
     private void _TimerTick(Object? sender, EventArgs e)

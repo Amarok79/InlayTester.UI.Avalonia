@@ -34,7 +34,9 @@ internal static class Program
                     Console.ReadKey(true);
                 }
             }
-        ) { IsBackground = true }.Start();
+        ) {
+            IsBackground = true,
+        }.Start();
     }
 
     public static AppBuilder BuildAvaloniaApp()

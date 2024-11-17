@@ -28,11 +28,11 @@ internal static partial class UserMappings
             roles.Add(new Role(Role.AdministratorId, String.Empty));
 
         var user = new User(Id.New(), vm.Name) {
-            Password = vm.Password1,
-            Notes = vm.Notes ?? String.Empty,
+            Password   = vm.Password1,
+            Notes      = vm.Notes ?? String.Empty,
             ModifiedBy = currentUserName,
             ModifiedOn = DateTime.Now,
-            Roles = roles,
+            Roles      = roles,
         };
 
         return user;

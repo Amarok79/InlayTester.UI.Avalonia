@@ -28,9 +28,7 @@ public partial class UserListViewModel : PageViewModel
     {
         mUsersSource.Connect()
             .Filter(
-                this.WhenValueChanged(x => x.SearchText)
-                    .Throttle(TimeSpan.FromMilliseconds(100))
-                    .Select(filterFunc)
+                this.WhenValueChanged(x => x.SearchText).Throttle(TimeSpan.FromMilliseconds(100)).Select(filterFunc)
             )
             .Sort(SortExpressionComparer<UserListItemViewModel>.Ascending(x => x.Name ?? String.Empty))
             .Bind(out _Users)
@@ -47,13 +45,13 @@ public partial class UserListViewModel : PageViewModel
     {
         IsBusy = true;
 
-        Shell.IsHomeButtonVisible = true;
+        Shell.IsHomeButtonVisible     = true;
         Shell.IsUserStatusItemEnabled = false;
 
         Shell.PageTitle = Loc["users.page-title"];
 
         PageHeader = Loc["users.page-header-list"];
-        PageIcon = UsersIcons.ListUsers;
+        PageIcon   = UsersIcons.ListUsers;
     }
 
 

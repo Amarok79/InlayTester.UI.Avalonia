@@ -32,8 +32,8 @@ public partial class ClockStatusItemViewModel : ObservableObject,
     {
         _Refresh();
 
-        mTimer.Tick += (_, _) => _Refresh();
-        mTimer.Interval = TimeSpan.FromMilliseconds(1000);
+        mTimer.Tick     += (_, _) => _Refresh();
+        mTimer.Interval =  TimeSpan.FromMilliseconds(1000);
         mTimer.Start();
 
         return Task.CompletedTask;

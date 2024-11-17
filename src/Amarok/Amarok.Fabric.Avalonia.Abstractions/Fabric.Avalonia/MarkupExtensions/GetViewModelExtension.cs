@@ -30,8 +30,6 @@ public sealed class GetViewModelExtension
     {
         var viewFactory = ServiceProviderLocator.ViewFactory;
 
-        return mType != null
-            ? viewFactory.CreateViewModel(mType)
-            : viewFactory.CreateViewModel(mContractKey!);
+        return mType != null ? viewFactory.CreateViewModel(mType) : viewFactory.CreateViewModel(mContractKey!);
     }
 }

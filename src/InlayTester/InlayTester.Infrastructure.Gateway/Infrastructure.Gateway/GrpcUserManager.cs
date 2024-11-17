@@ -48,7 +48,7 @@ internal sealed class GrpcUserManager : IUserManager
 
         var req = new AddUserRequest {
             User = new ApiUserWithPassword {
-                User = user.ToApi(),
+                User     = user.ToApi(),
                 Password = user.Password,
             },
         };
@@ -79,7 +79,9 @@ internal sealed class GrpcUserManager : IUserManager
 
         await _SimulateSlowServer();
 
-        var req = new GetUserRequest { Id = id };
+        var req = new GetUserRequest {
+            Id = id,
+        };
 
         var rsp = await mClient.GetUserAsync(req);
 
@@ -94,7 +96,7 @@ internal sealed class GrpcUserManager : IUserManager
 
         var req = new UpdateUserRequest {
             User = new ApiUserWithPassword {
-                User = user.ToApi(),
+                User     = user.ToApi(),
                 Password = user.Password,
             },
         };
@@ -110,7 +112,9 @@ internal sealed class GrpcUserManager : IUserManager
 
         await _SimulateSlowServer();
 
-        var req = new ContainsUserNameRequest { Name = name };
+        var req = new ContainsUserNameRequest {
+            Name = name,
+        };
 
         var rsp = await mClient.ContainsUserNameAsync(req);
 

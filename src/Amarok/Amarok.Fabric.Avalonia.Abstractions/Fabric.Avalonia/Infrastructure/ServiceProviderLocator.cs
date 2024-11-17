@@ -50,7 +50,7 @@ public static class ServiceProviderLocator
     public static void ClearCache()
     {
         sServiceProvider = new Lazy<IServiceProvider>(_ResolveServiceProvider);
-        sLocalizer = new Lazy<IStringLocalizer>(_ResolveLocalizer);
-        sViewFactory = new Lazy<IViewFactory>(_ResolveViewFactory);
+        sLocalizer       = new Lazy<IStringLocalizer>(_ResolveLocalizer);
+        sViewFactory     = new Lazy<IViewFactory>(_ResolveViewFactory);
     }
 }

@@ -67,10 +67,10 @@ public class HotKeyHelper : Control,
 
     public HotKeyHelper()
     {
-        IsVisible = false;
-        IsTabStop = false;
+        IsVisible        = false;
+        IsTabStop        = false;
         IsHitTestVisible = false;
-        Focusable = false;
+        Focusable        = false;
     }
 
     public void CanExecuteChanged(Object sender, EventArgs e)

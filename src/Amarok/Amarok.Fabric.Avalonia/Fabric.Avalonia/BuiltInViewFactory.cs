@@ -59,7 +59,7 @@ internal sealed class BuiltInViewFactory : IViewFactory
 
         if (view.DataContext is IActivationAware activationAware)
         {
-            view.Loaded += (sender, args) => _ = activationAware.ActivatedAsync();
+            view.Loaded   += (sender, args) => _ = activationAware.ActivatedAsync();
             view.Unloaded += (sender, args) => _ = activationAware.DeactivatedAsync();
         }
 

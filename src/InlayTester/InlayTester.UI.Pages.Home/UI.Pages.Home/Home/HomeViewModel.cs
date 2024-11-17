@@ -23,7 +23,7 @@ public partial class HomeViewModel : PageViewModel
     protected override void OnInitialize()
     {
         Shell.IsUserStatusItemEnabled = true;
-        Shell.IsHomeButtonVisible = false;
+        Shell.IsHomeButtonVisible     = false;
 
         Shell.PageTitle = Loc["home.page-title"];
     }

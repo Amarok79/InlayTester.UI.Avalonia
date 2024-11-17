@@ -11,10 +11,10 @@ public sealed class AppThemeDefinition : ThemeDefinition
 {
     public AppThemeDefinition()
     {
-        BaseFontSize = 15.0;
+        BaseFontSize         = 15.0;
         UserInterfaceDensity = UserInterfaceDensity.Spacious;
 
-        ButtonAppearanceKind = ButtonAppearanceKind.Solid;
+        ButtonAppearanceKind   = ButtonAppearanceKind.Solid;
         CheckBoxAppearanceKind = SwitchAppearanceKind.Outline;
 
         Generator = new AppThemeGenerator();

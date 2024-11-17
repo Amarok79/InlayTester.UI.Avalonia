@@ -29,7 +29,7 @@ public partial class ShellWindow : Window
                 IconProperty,
                 new Binding {
                     Source = vm,
-                    Path = nameof(ShellViewModel.WindowIcon),
+                    Path   = nameof(ShellViewModel.WindowIcon),
                 }
             );
 
@@ -37,7 +37,7 @@ public partial class ShellWindow : Window
                 TitleProperty,
                 new Binding {
                     Source = vm,
-                    Path = nameof(ShellViewModel.WindowTitle),
+                    Path   = nameof(ShellViewModel.WindowTitle),
                 }
             );
         }

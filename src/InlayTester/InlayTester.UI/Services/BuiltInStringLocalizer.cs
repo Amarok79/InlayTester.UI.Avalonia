@@ -115,7 +115,7 @@ internal sealed class BuiltInStringLocalizer : IStringLocalizer
         public TomlResourceReader(String filePath)
         {
             mFilePath = filePath;
-            mTable = new Lazy<TomlTable>(_ReadFile);
+            mTable    = new Lazy<TomlTable>(_ReadFile);
         }
 
         private TomlTable _ReadFile()

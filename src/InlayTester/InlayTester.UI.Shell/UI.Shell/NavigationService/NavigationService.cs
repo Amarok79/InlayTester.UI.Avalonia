@@ -26,9 +26,9 @@ internal sealed class NavigationService : INavigationService
     )
     {
         mNavigationHost = navigationHost;
-        mViewFactory = viewFactory;
-        mPageRegistry = pageRegistry;
-        mLogger = logger;
+        mViewFactory    = viewFactory;
+        mPageRegistry   = pageRegistry;
+        mLogger         = logger;
     }
 
 
@@ -59,7 +59,7 @@ internal sealed class NavigationService : INavigationService
             await newNavigationAware1.InitializeAsync(arg);
 
         mNavigationHost.Value.IsPageTransitionReversed = direction == NavigationDirection.Backward;
-        mNavigationHost.Value.Page = newViewModel;
+        mNavigationHost.Value.Page                     = newViewModel;
 
         await Task.Delay(150);
 

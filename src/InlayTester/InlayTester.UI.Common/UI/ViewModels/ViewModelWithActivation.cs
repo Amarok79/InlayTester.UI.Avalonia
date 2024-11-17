@@ -25,8 +25,8 @@ public abstract class ViewModelWithActivation : ViewModelWithThreading,
     public Boolean IsDeactivating { get; private set; }
 
     /// <summary>
-    ///     A collection of disposables that get disposed when the View and its corresponding View Model
-    ///     are deactivated (unloaded).
+    ///     A collection of disposables that get disposed when the View and its corresponding View Model are
+    ///     deactivated (unloaded).
     /// </summary>
     public ICollection<IDisposable> Disposables => mDisposables;
 

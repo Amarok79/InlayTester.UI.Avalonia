@@ -20,8 +20,6 @@ public sealed class PasswordsMismatchAttribute : ViewModelValidationAttributeBas
         if (vm.UserToValidate == null || vm.Password.IsNullOrWhitespace())
             return Success();
 
-        return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal)
-            ? Success()
-            : Error();
+        return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal) ? Success() : Error();
     }
 }

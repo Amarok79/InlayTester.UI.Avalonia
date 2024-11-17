@@ -7,8 +7,8 @@ namespace Amarok.Fabric.Avalonia;
 
 
 /// <summary>
-///     The data template that is used across the entire application to locate Views for given
-///     instances of View Models.
+///     The data template that is used across the entire application to locate Views for given instances of View
+///     Models.
 /// </summary>
 public interface IViewLocator : IDataTemplate
 {

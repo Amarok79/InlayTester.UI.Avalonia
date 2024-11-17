@@ -16,10 +16,10 @@ internal static partial class UserMappings
     )
     {
         return new UserListItemViewModel {
-            User = user,
-            Parent = parent,
-            Name = user.Name,
-            Roles = user.RolesAsText,
+            User         = user,
+            Parent       = parent,
+            Name         = user.Name,
+            Roles        = user.RolesAsText,
             LastModified = localizer["users.label-modified", user.ModifiedText],
         };
     }

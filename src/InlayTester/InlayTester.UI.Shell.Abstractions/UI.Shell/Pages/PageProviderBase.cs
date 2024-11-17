@@ -7,8 +7,8 @@ namespace InlayTester.UI.Shell;
 
 
 /// <summary>
-///     A base class implementation of <see cref="IPageProvider"/> which automatically exports itself
-///     as Page provider.
+///     A base class implementation of <see cref="IPageProvider"/> which automatically exports itself as Page
+///     provider.
 /// </summary>
 [InheritedExport<IPageProvider>]
 public abstract class PageProviderBase : IPageProvider

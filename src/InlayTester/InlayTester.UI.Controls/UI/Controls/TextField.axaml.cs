@@ -78,12 +78,11 @@ public class TextField : TemplatedControl
 
     #region Text
 
-    public static readonly StyledProperty<String?> TextProperty =
-        AvaloniaProperty.Register<TextField, String?>(
-            nameof(Text),
-            defaultBindingMode: BindingMode.TwoWay,
-            enableDataValidation: true
-        );
+    public static readonly StyledProperty<String?> TextProperty = AvaloniaProperty.Register<TextField, String?>(
+        nameof(Text),
+        defaultBindingMode: BindingMode.TwoWay,
+        enableDataValidation: true
+    );
 
     public String? Text
     {
@@ -148,17 +147,13 @@ public class TextField : TemplatedControl
     {
         base.OnApplyTemplate(e);
 
-        mLabel = e.NameScope.Get<Label>("PART_Label");
+        mLabel   = e.NameScope.Get<Label>("PART_Label");
         mTextBox = e.NameScope.Get<TextBox>("PART_TextBox");
 
         _UpdateKind(Kind);
     }
 
-    protected override void UpdateDataValidation(
-        AvaloniaProperty property,
-        BindingValueType state,
-        Exception? error
-    )
+    protected override void UpdateDataValidation(AvaloniaProperty property, BindingValueType state, Exception? error)
     {
         if (property == TextProperty && mTextBox != null)
             DataValidationErrors.SetError(mTextBox, error);
@@ -172,7 +167,7 @@ public class TextField : TemplatedControl
         if (kind == TextFieldKind.Text)
         {
             mTextBox!.Classes.Add("has-clear-button");
-            mTextBox!.MinHeight = 34;
+            mTextBox!.MinHeight                = 34;
             mTextBox!.VerticalContentAlignment = VerticalAlignment.Center;
         }
         else if (kind == TextFieldKind.Password)
@@ -180,15 +175,15 @@ public class TextField : TemplatedControl
             if (CanRevealPassword)
                 mTextBox!.Classes.Add("has-reveal-password-button");
 
-            mTextBox!.PasswordChar = '\x2022';
-            mTextBox!.MinHeight = 34;
+            mTextBox!.PasswordChar             = '\x2022';
+            mTextBox!.MinHeight                = 34;
             mTextBox!.VerticalContentAlignment = VerticalAlignment.Center;
         }
         else if (kind == TextFieldKind.MultiLine)
         {
-            mTextBox!.MinLines = 3;
-            mTextBox!.TextWrapping = TextWrapping.Wrap;
-            mTextBox!.MaxHeight = 76;
+            mTextBox!.MinLines      = 3;
+            mTextBox!.TextWrapping  = TextWrapping.Wrap;
+            mTextBox!.MaxHeight     = 76;
             mTextBox!.AcceptsReturn = true;
         }
     }

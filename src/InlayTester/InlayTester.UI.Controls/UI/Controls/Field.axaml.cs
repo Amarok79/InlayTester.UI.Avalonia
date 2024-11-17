@@ -46,11 +46,7 @@ public class Field : TemplatedControl
     #region Content
 
     public static readonly DirectProperty<Field, Object?> ContentProperty =
-        AvaloniaProperty.RegisterDirect<Field, Object?>(
-            nameof(Content),
-            o => o.Content,
-            (o, v) => o.Content = v
-        );
+        AvaloniaProperty.RegisterDirect<Field, Object?>(nameof(Content), o => o.Content, (o, v) => o.Content = v);
 
     private Object? mContent;
 
@@ -84,11 +80,7 @@ public class Field : TemplatedControl
     #endregion
 
 
-    protected override void UpdateDataValidation(
-        AvaloniaProperty property,
-        BindingValueType state,
-        Exception? error
-    )
+    protected override void UpdateDataValidation(AvaloniaProperty property, BindingValueType state, Exception? error)
     {
         if (property == ErrorsProperty)
             DataValidationErrors.SetError(this, error);

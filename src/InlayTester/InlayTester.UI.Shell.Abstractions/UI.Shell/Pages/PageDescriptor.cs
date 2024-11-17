@@ -21,7 +21,7 @@ public sealed class PageDescriptor
 
     private PageDescriptor(String id, Type viewModelType)
     {
-        Id = id;
+        Id            = id;
         ViewModelType = viewModelType;
     }
 

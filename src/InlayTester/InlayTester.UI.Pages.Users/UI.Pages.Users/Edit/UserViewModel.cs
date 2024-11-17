@@ -30,13 +30,13 @@ public partial class UserEditViewModel : PageViewModel
     {
         IsBusy = true;
 
-        Shell.IsHomeButtonVisible = false;
+        Shell.IsHomeButtonVisible     = false;
         Shell.IsUserStatusItemEnabled = false;
 
         Shell.PageTitle = Loc["users.page-title"];
 
         PageHeader = Loc[IsCreateNew ? "users.page-header-new" : "users.page-header-edit"];
-        PageIcon = IsCreateNew ? UsersIcons.NewUser : UsersIcons.EditUser;
+        PageIcon   = IsCreateNew ? UsersIcons.NewUser : UsersIcons.EditUser;
 
         CancelLabel = IsCreateNew ? Loc["users.button-cancel-new"] : Loc["users.button-cancel-edit"];
         AcceptLabel = IsCreateNew ? Loc["users.button-accept-new"] : Loc["users.button-accept-edit"];
@@ -67,7 +67,7 @@ public partial class UserEditViewModel : PageViewModel
     {
         MachineOperator = true;
 
-        IsNameEnabled = true;
+        IsNameEnabled  = true;
         IsRolesEnabled = true;
     }
 
@@ -77,15 +77,15 @@ public partial class UserEditViewModel : PageViewModel
 
         Guard.IsNotNull(user);
 
-        Name = user.Name;
-        Password1 = user.Password;
-        Password2 = user.Password;
+        Name            = user.Name;
+        Password1       = user.Password;
+        Password2       = user.Password;
         MachineOperator = user.IsMachineOperator;
-        MachineSetter = user.IsMachineSetter;
-        Administrator = user.IsAdministrator;
-        Notes = user.Notes;
+        MachineSetter   = user.IsMachineSetter;
+        Administrator   = user.IsAdministrator;
+        Notes           = user.Notes;
 
-        IsNameEnabled = false;
+        IsNameEnabled  = false;
         IsRolesEnabled = !user.IsSupervisor;
     }
 

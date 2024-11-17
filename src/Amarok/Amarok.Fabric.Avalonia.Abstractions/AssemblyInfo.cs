@@ -4,7 +4,4 @@ using Avalonia.Metadata;
 
 
 [assembly:
-    XmlnsDefinition(
-        "http://github.com/amarok79/amarok.fabric.avalonia",
-        "Amarok.Fabric.Avalonia.MarkupExtensions"
-    )]
+    XmlnsDefinition("http://github.com/amarok79/amarok.fabric.avalonia", "Amarok.Fabric.Avalonia.MarkupExtensions")]

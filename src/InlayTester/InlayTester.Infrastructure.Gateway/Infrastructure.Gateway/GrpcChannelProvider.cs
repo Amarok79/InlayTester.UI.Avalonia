@@ -22,7 +22,7 @@ internal sealed class GrpcChannelProvider
 
     public GrpcChannelProvider(IConfiguration configuration, ILogger<GrpcChannelProvider> logger)
     {
-        mLogger = logger;
+        mLogger  = logger;
         mChannel = new Lazy<GrpcChannel>(() => _CreateChannel(configuration));
     }
 

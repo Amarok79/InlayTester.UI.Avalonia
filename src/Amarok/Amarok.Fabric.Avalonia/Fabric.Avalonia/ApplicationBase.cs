@@ -27,17 +27,14 @@ public abstract class ApplicationBase : Application,
     {
         base.Initialize();
 
-        var container = new ContainerFactory().Create(
-            OnGetAssemblyIncludePatterns(),
-            OnGetAssemblyExcludePatterns()
-        );
+        var container = new ContainerFactory().Create(OnGetAssemblyIncludePatterns(), OnGetAssemblyExcludePatterns());
 
         var builder = new HostBuilderFactory().Create(OnGetApplicationBuilderSettings(), container);
 
         OnConfigureApplication(builder);
 
         mContainer = container;
-        mHost = builder.Build();
+        mHost      = builder.Build();
 
         DataTemplates.Add(container.GetRequiredService<IViewLocator>());
     }
@@ -67,9 +64,9 @@ public abstract class ApplicationBase : Application,
 
 
     /// <summary>
-    ///     Called to determine the assembly include patterns (globs), defining the application assemblies
-    ///     that get loaded and scanned and which exported types are automatically registered in the
-    ///     dependency injection container. Defaults to "*.dll".
+    ///     Called to determine the assembly include patterns (globs), defining the application assemblies that get
+    ///     loaded and scanned and which exported types are automatically registered in the dependency injection
+    ///     container. Defaults to "*.dll".
     /// </summary>
     protected virtual IEnumerable<String> OnGetAssemblyIncludePatterns()
     {
@@ -77,9 +74,9 @@ public abstract class ApplicationBase : Application,
     }
 
     /// <summary>
-    ///     Called to determine the assembly exclude patterns (globs), defining the application assemblies
-    ///     that get loaded and scanned and which exported types are automatically registered in the
-    ///     dependency injection container. Defaults to an empty list.
+    ///     Called to determine the assembly exclude patterns (globs), defining the application assemblies that get
+    ///     loaded and scanned and which exported types are automatically registered in the dependency injection
+    ///     container. Defaults to an empty list.
     /// </summary>
     protected virtual IEnumerable<String> OnGetAssemblyExcludePatterns()
     {
@@ -103,8 +100,7 @@ public abstract class ApplicationBase : Application,
     }
 
     /// <summary>
-    ///     Called for <see cref="IClassicDesktopStyleApplicationLifetime"/> applications to obtain the
-    ///     root window.
+    ///     Called for <see cref="IClassicDesktopStyleApplicationLifetime"/> applications to obtain the root window.
     /// </summary>
     protected virtual Window OnCreateRootWindow(IViewFactory viewFactory)
     {
@@ -120,8 +116,8 @@ public abstract class ApplicationBase : Application,
     }
 
     /// <summary>
-    ///     Called at the end of framework initialization to allow applications to configure startup or
-    ///     initial steps, e.g. navigate to a home view, etc.
+    ///     Called at the end of framework initialization to allow applications to configure startup or initial
+    ///     steps, e.g. navigate to a home view, etc.
     /// </summary>
     /// <returns></returns>
     protected virtual Task OnInitializedAsync()

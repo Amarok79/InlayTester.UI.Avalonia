@@ -53,8 +53,8 @@ public partial class ShellViewModel : ViewModelWithLogger,
     {
         mIsOverlayVisible = true;
 
-        IsBaseLayerEnabled = false;
-        IsOverlayLayerEnabled = true;
+        IsBaseLayerEnabled       = false;
+        IsOverlayLayerEnabled    = true;
         IsMessageBoxLayerEnabled = mIsMessageBoxVisible;
     }
 
@@ -62,8 +62,8 @@ public partial class ShellViewModel : ViewModelWithLogger,
     {
         mIsOverlayVisible = false;
 
-        IsBaseLayerEnabled = true;
-        IsOverlayLayerEnabled = false;
+        IsBaseLayerEnabled       = true;
+        IsOverlayLayerEnabled    = false;
         IsMessageBoxLayerEnabled = mIsMessageBoxVisible;
     }
 
@@ -71,8 +71,8 @@ public partial class ShellViewModel : ViewModelWithLogger,
     {
         mIsMessageBoxVisible = true;
 
-        IsBaseLayerEnabled = false;
-        IsOverlayLayerEnabled = false;
+        IsBaseLayerEnabled       = false;
+        IsOverlayLayerEnabled    = false;
         IsMessageBoxLayerEnabled = true;
     }
 
@@ -80,8 +80,8 @@ public partial class ShellViewModel : ViewModelWithLogger,
     {
         mIsMessageBoxVisible = false;
 
-        IsBaseLayerEnabled = !mIsOverlayVisible;
-        IsOverlayLayerEnabled = mIsOverlayVisible;
+        IsBaseLayerEnabled       = !mIsOverlayVisible;
+        IsOverlayLayerEnabled    = mIsOverlayVisible;
         IsMessageBoxLayerEnabled = false;
     }
 }

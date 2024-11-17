@@ -54,11 +54,7 @@ public partial class MessageBoxViewModel : ObservableObject,
     }
 
 
-    public Task ShowErrorAsync(
-        String errorCode,
-        Exception exception,
-        CancellationToken cancellationToken = default
-    )
+    public Task ShowErrorAsync(String errorCode, Exception exception, CancellationToken cancellationToken = default)
     {
         LoggerFactory.CreateLogger("App").LogError(exception, "ERROR: {ErrorCode}", errorCode);
 
@@ -90,21 +86,21 @@ public partial class MessageBoxViewModel : ObservableObject,
             registration = cancellationToken.Register(() => tcs.TrySetResult(MessageBoxResult.None));
 
 
-        Icon = mapIcon();
-        Title = title;
-        Text = text;
-        AcceptText = mapAcceptText();
-        CancelText = mapCancelText();
-        IsCancelVisible = mapIsCancelVisible();
-        IsInfoStyle = style is MessageBoxStyle.Info;
-        IsQuestionStyle = style is MessageBoxStyle.Question;
-        IsWarningStyle = style is MessageBoxStyle.Warning;
-        IsErrorStyle = style is MessageBoxStyle.Error;
-        IsAccentColorStyle = style is MessageBoxStyle.Info;
+        Icon                = mapIcon();
+        Title               = title;
+        Text                = text;
+        AcceptText          = mapAcceptText();
+        CancelText          = mapCancelText();
+        IsCancelVisible     = mapIsCancelVisible();
+        IsInfoStyle         = style is MessageBoxStyle.Info;
+        IsQuestionStyle     = style is MessageBoxStyle.Question;
+        IsWarningStyle      = style is MessageBoxStyle.Warning;
+        IsErrorStyle        = style is MessageBoxStyle.Error;
+        IsAccentColorStyle  = style is MessageBoxStyle.Info;
         IsWarningColorStyle = style is MessageBoxStyle.Question or MessageBoxStyle.Warning;
-        IsDangerColorStyle = style is MessageBoxStyle.Error;
-        AcceptCommand = new RelayCommand(() => tcs.TrySetResult(MessageBoxResult.Accept));
-        CancelCommand = new RelayCommand(() => tcs.TrySetResult(MessageBoxResult.Cancel));
+        IsDangerColorStyle  = style is MessageBoxStyle.Error;
+        AcceptCommand       = new RelayCommand(() => tcs.TrySetResult(MessageBoxResult.Accept));
+        CancelCommand       = new RelayCommand(() => tcs.TrySetResult(MessageBoxResult.Cancel));
 
         LayerManager.ShowMessageBox();
         IsOpen = true;
