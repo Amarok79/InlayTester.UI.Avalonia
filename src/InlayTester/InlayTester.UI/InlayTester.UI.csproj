@@ -10,7 +10,7 @@
 
     <PropertyGroup>
         <IsPublishable Condition="'$(RuntimeIdentifier)' != ''">True</IsPublishable>
-        <PublishDir>..\..\..\bin\pub\ui\$(RuntimeIdentifier)</PublishDir>
+        <PublishDir>..\..\..\out\app\ui\$(RuntimeIdentifier)</PublishDir>
         <PublishReadyToRun>True</PublishReadyToRun>
         <PublishSelfContained>True</PublishSelfContained>
     </PropertyGroup>
