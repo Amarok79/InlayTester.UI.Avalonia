@@ -7,6 +7,8 @@ echo ::: Restore
 dotnet restore ^
     -bl:restore.binlog
 
+IF %ERRORLEVEL% NEQ 0 EXIT /b
+
 
 echo.
 echo.
@@ -16,12 +18,18 @@ dotnet build ^
     --no-incremental ^
     -bl:build-debug.binlog
 
+IF %ERRORLEVEL% NEQ 0 EXIT /b
+
+
 echo.
 echo.
 echo ::: Test
 dotnet test ^
     bin/tests/**/*.Tests.dll ^
     -- NUnit.ConsoleOut=0 NUnit.UseTestNameInConsoleOutput=true NUnit.DisplayName=FullName
+
+IF %ERRORLEVEL% NEQ 0 EXIT /b
+
 
 echo.
 echo.
@@ -31,6 +39,8 @@ dotnet build ^
     --no-incremental ^
     -bl:build-release.binlog
 
+IF %ERRORLEVEL% NEQ 0 EXIT /b
+
 
 echo.
 echo.
@@ -39,3 +49,5 @@ dotnet publish ^
     -c Release ^
     -r win-x64 ^
     -bl:publish-win-x64.binlog
+
+IF %ERRORLEVEL% NEQ 0 EXIT /b
