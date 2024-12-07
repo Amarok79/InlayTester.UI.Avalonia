@@ -4,6 +4,7 @@
 
 using Amarok.Fabric;
 using Amarok.Fabric.Avalonia;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Input;
 using InlayTester.UI.Shell.Infrastructure;
 
@@ -44,8 +45,13 @@ public partial class ShellViewModel : ViewModelWithLogger,
     {
         await Navigation.GoToAsync("", NavigationDirection.Backward);
 
+        IsBaseLayerEnabled       = false;
+        IsMessageBoxLayerEnabled = false;
+        IsOverlayLayerEnabled    = false;
 
-        //Dispatcher.UIThread.BeginInvokeShutdown(DispatcherPriority.Default);
+        await Task.Delay(500);
+
+        Dispatcher.UIThread.BeginInvokeShutdown(DispatcherPriority.Default);
     }
 
 
