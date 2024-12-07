@@ -8,11 +8,4 @@
         <ProjectReference Include="..\..\..\src\Amarok\Amarok.Fabric.Abstractions\Amarok.Fabric.Abstractions.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Update="NUnit.Analyzers">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-    </ItemGroup>
-
 </Project>
