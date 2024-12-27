@@ -4,7 +4,6 @@
 
 using Amarok.Fabric;
 using Amarok.Fabric.Avalonia;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 
 namespace InlayTester.UI;
@@ -13,7 +12,7 @@ namespace InlayTester.UI;
 /// <summary>
 ///     A view model base class with additional threading support.
 /// </summary>
-public abstract class ViewModelWithThreading : ObservableValidator
+public abstract class ViewModelWithThreading : ViewModelWithLogger
 {
     /// <summary>
     ///     The thread helper (injected)
