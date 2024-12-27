@@ -18,7 +18,9 @@ public sealed class MatchingPasswordsRequiredAttribute : ViewModelValidationAttr
     protected override ValidationResult? IsValid(UserEditViewModel vm, ValidationContext ctx)
     {
         if (vm.Password1.IsNullOrWhitespace() || vm.Password2.IsNullOrWhitespace())
+        {
             return Success();
+        }
 
         return String.Equals(vm.Password1, vm.Password2, StringComparison.Ordinal) ? Success() : Error();
     }

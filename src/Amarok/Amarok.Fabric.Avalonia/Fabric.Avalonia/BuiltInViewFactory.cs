@@ -85,12 +85,16 @@ internal sealed class BuiltInViewFactory : IViewFactory
     private static Type _GetViewTypeFromViewModel(Object viewModel)
     {
         if (viewModel is IViewAware viewAware)
+        {
             return viewAware.ViewType;
+        }
 
         var viewType = viewModel.GetType().GetCustomAttribute<ViewAttribute>()?.ViewType;
 
         if (viewType != null)
+        {
             return viewType;
+        }
 
         throw new ArgumentException(
             $"Unable to determine the View associated with a View Model. The View Model type '{

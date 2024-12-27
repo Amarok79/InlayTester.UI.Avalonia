@@ -8,7 +8,9 @@ internal static class FilterHelper
     public static Boolean Filter(String? text, params String[] properties)
     {
         if (text == null)
+        {
             return true;
+        }
 
         text = text.Trim();
 

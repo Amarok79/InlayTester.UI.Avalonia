@@ -80,6 +80,8 @@ public abstract class ViewModelWithActivation : ViewModelWithThreading,
     protected virtual void Dispose(Boolean disposing)
     {
         if (disposing)
+        {
             mDisposables.Dispose();
+        }
     }
 }

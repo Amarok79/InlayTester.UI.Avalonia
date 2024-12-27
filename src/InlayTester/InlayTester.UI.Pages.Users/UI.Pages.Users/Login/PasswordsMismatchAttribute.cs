@@ -18,7 +18,9 @@ public sealed class PasswordsMismatchAttribute : ViewModelValidationAttributeBas
     protected override ValidationResult? IsValid(LoginOverlayViewModel vm, ValidationContext ctx)
     {
         if (vm.UserToValidate == null || vm.Password.IsNullOrWhitespace())
+        {
             return Success();
+        }
 
         return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal) ? Success() : Error();
     }

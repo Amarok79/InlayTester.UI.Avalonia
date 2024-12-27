@@ -22,10 +22,14 @@ internal sealed class BuiltInViewLocator : IViewLocator
     public Boolean Match(Object? data)
     {
         if (data is INotifyPropertyChanged)
+        {
             data = data.GetType();
+        }
 
         if (data is Type type)
+        {
             return typeof(IViewAware).IsAssignableFrom(type) || Attribute.IsDefined(type, typeof(ViewAttribute));
+        }
 
         return false;
     }

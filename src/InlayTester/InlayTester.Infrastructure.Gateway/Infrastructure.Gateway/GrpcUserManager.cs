@@ -36,7 +36,9 @@ internal sealed class GrpcUserManager : IUserManager
     private async Task _SimulateSlowServer()
     {
         if (mSimulateSlowServerDelay > 0)
+        {
             await Task.Delay(mSimulateSlowServerDelay);
+        }
     }
 
 

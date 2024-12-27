@@ -110,7 +110,9 @@ public partial class UserListViewModel : PageViewModel
     private async Task Edit(UserListItemViewModel item)
     {
         if (item.CanEdit)
+        {
             await Shell.Navigation.GoToAsync(UserPages.Edit, item.User.Id, NavigationDirection.Forward);
+        }
     }
 
     [RelayCommand(CanExecute = nameof(CanEdit))]
@@ -119,7 +121,9 @@ public partial class UserListViewModel : PageViewModel
         var item = mUsersSource.Items.FirstOrDefault(x => x.IsActive);
 
         if (item != null)
+        {
             await EditCommand.ExecuteAsync(item);
+        }
     }
 
 
@@ -168,7 +172,9 @@ public partial class UserListViewModel : PageViewModel
         var item = mUsersSource.Items.FirstOrDefault(x => x.IsActive);
 
         if (item != null)
+        {
             await Delete(item);
+        }
     }
 
 

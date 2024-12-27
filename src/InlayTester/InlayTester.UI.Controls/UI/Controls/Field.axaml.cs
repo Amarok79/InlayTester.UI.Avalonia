@@ -83,6 +83,8 @@ public class Field : TemplatedControl
     protected override void UpdateDataValidation(AvaloniaProperty property, BindingValueType state, Exception? error)
     {
         if (property == ErrorsProperty)
+        {
             DataValidationErrors.SetError(this, error);
+        }
     }
 }

@@ -11,7 +11,9 @@ public abstract class ViewModelValidationAttributeBase<TViewModel> : ValidationA
     protected sealed override ValidationResult? IsValid(Object? value, ValidationContext ctx)
     {
         if (ctx.ObjectInstance is TViewModel vm)
+        {
             return IsValid(vm, ctx);
+        }
 
         return Success();
     }

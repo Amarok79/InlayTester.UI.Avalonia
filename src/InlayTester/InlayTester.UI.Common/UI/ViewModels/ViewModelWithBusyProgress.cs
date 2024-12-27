@@ -28,7 +28,9 @@ public abstract partial class ViewModelWithBusyProgress : ViewModelWithBusy
     protected override Task OnActivatedAsync()
     {
         if (IsBusy)
+        {
             _StartTimer();
+        }
 
         return base.OnActivatedAsync();
     }
@@ -49,10 +51,14 @@ public abstract partial class ViewModelWithBusyProgress : ViewModelWithBusy
         base.OnIsBusyChanged();
 
         if (IsDeactivating)
+        {
             return;
+        }
 
         if (IsBusy)
+        {
             _StartTimer();
+        }
         else
         {
             mTimer?.Stop();
@@ -65,7 +71,9 @@ public abstract partial class ViewModelWithBusyProgress : ViewModelWithBusy
     private void _StartTimer()
     {
         if (mTimer == null)
+        {
             _CreateTimer();
+        }
 
         Guard.IsNotNull(mTimer);
 
@@ -84,6 +92,8 @@ public abstract partial class ViewModelWithBusyProgress : ViewModelWithBusy
         mTimer?.Stop();
 
         if (IsBusy && !IsDeactivating)
+        {
             IsBusyProgressVisible = true;
+        }
     }
 }

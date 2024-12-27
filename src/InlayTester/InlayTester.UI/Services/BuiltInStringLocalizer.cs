@@ -62,7 +62,9 @@ internal sealed class BuiltInStringLocalizer : IStringLocalizer
                 text = mResolver.FromFunc(text, token => reader.GetString(token));
 
                 if (args != null && args.Length > 0)
+                {
                     text = String.Format(CultureInfo.CurrentCulture, text, args);
+                }
 
                 return new LocalizedString(key, text, true);
             }
@@ -82,7 +84,9 @@ internal sealed class BuiltInStringLocalizer : IStringLocalizer
             );
 
             if (reader != null || language.IsNeutralCulture)
+            {
                 return reader;
+            }
 
             language = language.Parent;
         }

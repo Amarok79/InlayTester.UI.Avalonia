@@ -64,7 +64,9 @@ public partial class UserStatusItemViewModel : ViewModelWithActivation
     public async Task Login()
     {
         if (!IsLoggedIn)
+        {
             await Shell.ShowLoginAsync();
+        }
     }
 
     [RelayCommand]

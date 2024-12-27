@@ -47,16 +47,22 @@ internal sealed class NavigationService : INavigationService
         var currentViewModel = mNavigationHost.Value.Page;
 
         if (currentViewModel is INavigationAware currentNavigationAware)
+        {
             await currentNavigationAware.LeaveAsync();
+        }
 
         if (currentViewModel is IDisposable currentDisposable)
+        {
             currentDisposable.Dispose();
+        }
 
 
         var newViewModel = page != null ? mViewFactory.CreateViewModel(page.ViewModelType) : null;
 
         if (newViewModel is INavigationAware newNavigationAware1)
+        {
             await newNavigationAware1.InitializeAsync(arg);
+        }
 
         mNavigationHost.Value.IsPageTransitionReversed = direction == NavigationDirection.Backward;
         mNavigationHost.Value.Page                     = newViewModel;
@@ -64,6 +70,8 @@ internal sealed class NavigationService : INavigationService
         await Task.Delay(150);
 
         if (newViewModel is INavigationAware newNavigationAware2)
+        {
             await newNavigationAware2.EnterAsync();
+        }
     }
 }

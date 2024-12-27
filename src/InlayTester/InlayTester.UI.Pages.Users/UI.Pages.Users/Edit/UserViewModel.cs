@@ -48,9 +48,13 @@ public partial class UserEditViewModel : PageViewModel
         try
         {
             if (IsCreateNew)
+            {
                 _PrepareForNewUser();
+            }
             else
+            {
                 await _PrepareForEditUser();
+            }
 
             IsBusy = false;
         }
@@ -113,12 +117,16 @@ public partial class UserEditViewModel : PageViewModel
         try
         {
             if (IsCreateNew)
+            {
                 await _CheckWhetherNameIsUnique();
+            }
 
             ValidateAllProperties();
 
             if (!HasErrors)
+            {
                 await _SaveAndReturn();
+            }
         }
         catch (Exception exception)
         {
@@ -135,7 +143,9 @@ public partial class UserEditViewModel : PageViewModel
     private async Task _CheckWhetherNameIsUnique()
     {
         if (Name.IsNullOrWhitespace())
+        {
             HasUniqueName = true;
+        }
         else
         {
             var contains = await UserManager.ContainsUserNameAsync(Name ?? String.Empty);
@@ -149,9 +159,13 @@ public partial class UserEditViewModel : PageViewModel
         IsBusy = true;
 
         if (IsCreateNew)
+        {
             await _SaveNewUser();
+        }
         else
+        {
             await _SaveExistingUser();
+        }
 
         await Shell.Navigation.GoToAsync(UserPages.List, NavigationDirection.Backward);
     }

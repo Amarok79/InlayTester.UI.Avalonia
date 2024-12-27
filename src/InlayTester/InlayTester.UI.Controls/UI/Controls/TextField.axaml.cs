@@ -156,7 +156,9 @@ public class TextField : TemplatedControl
     protected override void UpdateDataValidation(AvaloniaProperty property, BindingValueType state, Exception? error)
     {
         if (property == TextProperty && mTextBox != null)
+        {
             DataValidationErrors.SetError(mTextBox, error);
+        }
     }
 
 
@@ -173,7 +175,9 @@ public class TextField : TemplatedControl
         else if (kind == TextFieldKind.Password)
         {
             if (CanRevealPassword)
+            {
                 mTextBox!.Classes.Add("has-reveal-password-button");
+            }
 
             mTextBox!.PasswordChar             = '\x2022';
             mTextBox!.MinHeight                = 34;

@@ -123,7 +123,13 @@ public class LocalizableTests
     [Test]
     public void New_from_Tuple_ImplicitCast_String_Args()
     {
-        Localizable s = ("key", [ 123, "bbb", 12.3, "c", 999 ]);
+        Localizable s = ("key", [
+            123,
+            "bbb",
+            12.3,
+            "c",
+            999,
+        ]);
 
         Check.That(s.ResourceKey).IsEqualTo("key");
         Check.That(s.Args).ContainsExactly(123, "bbb", 12.3, "c", 999);

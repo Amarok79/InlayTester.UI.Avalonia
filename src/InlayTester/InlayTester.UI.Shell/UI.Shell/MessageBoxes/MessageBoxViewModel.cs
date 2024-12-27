@@ -83,7 +83,9 @@ public partial class MessageBoxViewModel : ObservableObject,
         CancellationTokenRegistration registration = default;
 
         if (cancellationToken.CanBeCanceled)
+        {
             registration = cancellationToken.Register(() => tcs.TrySetResult(MessageBoxResult.None));
+        }
 
 
         Icon                = mapIcon();
@@ -130,7 +132,9 @@ public partial class MessageBoxViewModel : ObservableObject,
         MaterialIconKind mapIcon()
         {
             if (icon != null)
+            {
                 return icon.Value;
+            }
 
             return style switch {
                 MessageBoxStyle.Info     => MaterialIconKind.InfoCircleOutline,
@@ -144,7 +148,9 @@ public partial class MessageBoxViewModel : ObservableObject,
         String mapAcceptText()
         {
             if (acceptText != null)
+            {
                 return acceptText;
+            }
 
             return style switch {
                 MessageBoxStyle.Info     => Loc["label-ok"],
@@ -158,7 +164,9 @@ public partial class MessageBoxViewModel : ObservableObject,
         String mapCancelText()
         {
             if (cancelText != null)
+            {
                 return cancelText;
+            }
 
             return style switch {
                 MessageBoxStyle.Info     => Loc["label-cancel"],
@@ -172,7 +180,9 @@ public partial class MessageBoxViewModel : ObservableObject,
         Boolean mapIsCancelVisible()
         {
             if (cancelIsVisible != null)
+            {
                 return cancelIsVisible.Value;
+            }
 
             return style switch {
                 MessageBoxStyle.Info     => false,

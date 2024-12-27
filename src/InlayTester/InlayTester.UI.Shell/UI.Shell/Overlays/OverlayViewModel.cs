@@ -48,13 +48,17 @@ public partial class OverlayViewModel : ObservableObject,
         var ctx = new OverlayContext();
 
         if (viewModel is IOverlayAware overlayAware)
+        {
             overlayAware.Context = ctx;
+        }
 
 
         CancellationTokenRegistration registration = default;
 
         if (cancellationToken.CanBeCanceled)
+        {
             registration = cancellationToken.Register(() => ctx.Close());
+        }
 
 
         LayerManager.ShowOverlay();

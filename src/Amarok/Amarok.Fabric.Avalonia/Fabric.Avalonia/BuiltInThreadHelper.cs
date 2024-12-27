@@ -21,7 +21,9 @@ internal sealed class BuiltInThreadHelper : IThreadHelper
     public void VerifyAccess()
     {
         if (!Context.IsOnMainThread)
+        {
             ThrowHelper.ThrowInvalidOperationException("Not on the main thread");
+        }
     }
 
 

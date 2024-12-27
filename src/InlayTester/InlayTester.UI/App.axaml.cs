@@ -129,7 +129,9 @@ public class App : ApplicationBase
             var configuration = ServiceProvider.GetRequiredService<IConfiguration>();
 
             if (desktop.MainWindow != null && configuration.GetValue("avalonia:dev-tools", false))
+            {
                 desktop.MainWindow.AttachDevTools();
+            }
         }
 
 
@@ -142,7 +144,9 @@ public class App : ApplicationBase
         shell.HomeCommand = new AsyncRelayCommand(
             async () => {
                 if (shell.IsHomeButtonVisible)
+                {
                     await shell.Navigation.GoToAsync(HomePages.Home, NavigationDirection.Backward);
+                }
             }
         );
 

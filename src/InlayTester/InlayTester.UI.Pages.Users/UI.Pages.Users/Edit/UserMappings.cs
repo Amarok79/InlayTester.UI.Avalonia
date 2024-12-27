@@ -19,13 +19,19 @@ internal static partial class UserMappings
         var roles = new HashSet<Role>();
 
         if (vm.MachineOperator)
+        {
             roles.Add(new Role(Role.MachineOperatorId, String.Empty));
+        }
 
         if (vm.MachineSetter)
+        {
             roles.Add(new Role(Role.MachineSetterId, String.Empty));
+        }
 
         if (vm.Administrator)
+        {
             roles.Add(new Role(Role.AdministratorId, String.Empty));
+        }
 
         var user = new User(Id.New(), vm.Name) {
             Password   = vm.Password1,

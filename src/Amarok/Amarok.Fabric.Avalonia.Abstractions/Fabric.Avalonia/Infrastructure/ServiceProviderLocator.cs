@@ -19,7 +19,9 @@ public static class ServiceProviderLocator
     private static IServiceProvider _ResolveServiceProvider()
     {
         if (Application.Current is IServiceProviderAware serviceProviderAware)
+        {
             return serviceProviderAware.ServiceProvider;
+        }
 
         ThrowHelper.ThrowInvalidOperationException(
             "Unable to resolve IServiceProvider via Application.Current. Make sure to inherit " +

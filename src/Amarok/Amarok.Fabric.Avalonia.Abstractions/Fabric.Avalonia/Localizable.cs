@@ -124,7 +124,9 @@ public readonly struct Localizable
     public LocalizedString GetString(IStringLocalizer localizer)
     {
         if (ResourceKey == null)
+        {
             return new LocalizedString(String.Empty, String.Empty);
+        }
 
         return Args == null ? localizer.GetString(ResourceKey) : localizer.GetString(ResourceKey, Args);
     }
