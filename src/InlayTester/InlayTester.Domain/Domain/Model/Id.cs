@@ -3,33 +3,52 @@
 namespace InlayTester.Domain;
 
 
+/// <summary>
+///     Represents an identifier.
+/// </summary>
 public readonly struct Id : IEquatable<Id>
 {
     private readonly String mValue;
 
 
+    /// <summary>
+    ///     Initializes an empty identifier.
+    /// </summary>
     public Id()
     {
         mValue = String.Empty;
     }
 
+    /// <summary>
+    ///     Initializes an identifier from the given string.
+    /// </summary>
     public Id(String value)
     {
         mValue = value;
     }
 
+    /// <summary>
+    ///     Initializes an identifier from the given guid.
+    /// </summary>
     public Id(Guid guid)
     {
         mValue = guid.ToString("N");
     }
 
 
+    /// <summary>
+    ///     Initializes a random identifier.
+    /// </summary>
     public static Id New()
     {
         return new Id(Guid.NewGuid());
     }
 
 
+
+    /// <summary>
+    ///     Returns the string representation.
+    /// </summary>
     public override String ToString()
     {
         return mValue;
@@ -42,11 +61,17 @@ public readonly struct Id : IEquatable<Id>
     }
 
 
+    /// <summary>
+    ///     Implicit cast from String
+    /// </summary>
     public static implicit operator Id(String value)
     {
         return new Id(value);
     }
 
+    /// <summary>
+    ///     Implicit cast from Guid
+    /// </summary>
     public static implicit operator Id(Guid value)
     {
         return new Id(value);

@@ -12,6 +12,9 @@ public sealed record class User(Id Id, String Name)
     public static readonly Int32 MaxNotesLength = 300;
 
 
+    public static Id SupervisorId { get; } = new Guid("{F522BD39-DA07-41ad-A70F-04F4FDFC5A6D}");
+
+
     public String Password { get; init; } = String.Empty;
 
     public String Notes { get; init; } = String.Empty;
@@ -38,9 +41,6 @@ public sealed record class User(Id Id, String Name)
     public Boolean IsAdministrator => Roles.Any(x => x.IsAdministrator);
 
     public Boolean IsSupervisor => Id == SupervisorId;
-
-
-    public static Id SupervisorId { get; } = new(new Guid("{F522BD39-DA07-41ad-A70F-04F4FDFC5A6D}"));
 
 
     public Boolean CanEdit()
