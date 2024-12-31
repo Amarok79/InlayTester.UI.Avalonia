@@ -22,9 +22,7 @@ public class LocalizableTests
         var loc = new Mock<IStringLocalizer>(MockBehavior.Strict);
         var ls  = s.GetString(loc.Object);
 
-        Check.That(ls.Name).IsEqualTo("");
-        Check.That(ls.Value).IsEqualTo("");
-        Check.That(ls.ResourceNotFound).IsFalse();
+        Check.That(ls).IsEqualTo("");
     }
 
     [Test]
@@ -33,7 +31,7 @@ public class LocalizableTests
         var s = new Localizable("key");
 
         Check.That(s.ResourceKey).IsEqualTo("key");
-        Check.That(s.Args).IsNull();
+        Check.That(s.Args).IsEmpty();
         Check.That(s.ToString()).IsEqualTo("[key]");
 
         var loc = new Mock<IStringLocalizer>(MockBehavior.Strict);
@@ -41,9 +39,7 @@ public class LocalizableTests
 
         var ls = s.GetString(loc.Object);
 
-        Check.That(ls.Name).IsEqualTo("key");
-        Check.That(ls.Value).IsEqualTo("aaa");
-        Check.That(ls.ResourceNotFound).IsFalse();
+        Check.That(ls).IsEqualTo("aaa");
     }
 
     [Test]
@@ -60,9 +56,7 @@ public class LocalizableTests
 
         var ls = s.GetString(loc.Object);
 
-        Check.That(ls.Name).IsEqualTo("key");
-        Check.That(ls.Value).IsEqualTo("aaa123bbb");
-        Check.That(ls.ResourceNotFound).IsFalse();
+        Check.That(ls).IsEqualTo("aaa123bbb");
     }
 
 
@@ -72,7 +66,7 @@ public class LocalizableTests
         Localizable s = "key";
 
         Check.That(s.ResourceKey).IsEqualTo("key");
-        Check.That(s.Args).IsNull();
+        Check.That(s.Args).IsEmpty();
     }
 
     [Test]

@@ -17,13 +17,22 @@ public readonly struct Localizable
     /// <summary>
     ///     The resource lookup key.
     /// </summary>
-    public String? ResourceKey { get; }
+    public String ResourceKey { get; }
 
     /// <summary>
     ///     The optional format arguments.
     /// </summary>
-    public Object[]? Args { get; }
+    public Object[] Args { get; }
 
+
+    /// <summary>
+    ///     Initializes an empty text resource.
+    /// </summary>
+    public Localizable()
+    {
+        ResourceKey = String.Empty;
+        Args        = [ ];
+    }
 
     /// <summary>
     ///     Initializes a localizable text resource with the given resource key.
@@ -31,6 +40,7 @@ public readonly struct Localizable
     public Localizable(String resourceKey)
     {
         ResourceKey = resourceKey;
+        Args        = [ ];
     }
 
     /// <summary>
@@ -121,13 +131,15 @@ public readonly struct Localizable
     /// <returns>
     ///     A locale specific string.
     /// </returns>
-    public LocalizedString GetString(IStringLocalizer localizer)
+    public String GetString(IStringLocalizer localizer)
     {
         if (ResourceKey == null)
         {
-            return new LocalizedString(String.Empty, String.Empty);
+            return String.Empty;
         }
 
-        return Args == null ? localizer.GetString(ResourceKey) : localizer.GetString(ResourceKey, Args);
+        return Args == null || Args.Length == 0
+            ? localizer.GetString(ResourceKey)
+            : localizer.GetString(ResourceKey, Args);
     }
 }
