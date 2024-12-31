@@ -1,0 +1,28 @@
+<Project>
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+    <PropertyGroup>
+        <RootNamespace>InlayTester</RootNamespace>
+        <Nullable>Disable</Nullable>
+        <ImplicitUsings>Enable</ImplicitUsings>
+        <IsPackable>False</IsPackable>
+        <IsPublishable>False</IsPublishable>
+        <IsTestProject>True</IsTestProject>
+        <BaseOutputPath>$(RootDir)bin\tests\$(MSBuildProjectName)</BaseOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="Moq" />
+        <PackageReference Include="NFluent" />
+        <PackageReference Include="NUnit" />
+        <PackageReference Include="NUnit3TestAdapter" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="NFluent" />
+        <Using Include="NUnit.Framework" />
+    </ItemGroup>
+
+</Project>

@@ -1,5 +1,8 @@
 ﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
 
+using System.Text;
+
+
 namespace InlayTester.Domain;
 
 
@@ -28,7 +31,7 @@ public sealed record class User(Id Id, String Name)
 
     public String RolesAsText => String.Join(", ", Roles.OrderBy(x => x, RoleComparer.Default).Select(x => x.Name));
 
-    public String ModifiedText
+    public String ModifiedAsText
         => ModifiedBy.IsNullOrWhitespace()
             ? ModifiedOn.ToString(CultureInfo.CurrentCulture)
             : $"{ModifiedBy}, {ModifiedOn.ToString(CultureInfo.CurrentCulture)}";
@@ -55,12 +58,15 @@ public sealed record class User(Id Id, String Name)
 
     public Boolean Filter(String? text)
     {
-        return FilterHelper.Filter(text, Name, RolesAsText, ModifiedText);
+        return FilterHelper.Filter(text, Name, RolesAsText, ModifiedAsText);
     }
 
 
-    public override String ToString()
+    private Boolean PrintMembers(StringBuilder builder)
     {
-        return Name;
+        builder.Append(CultureInfo.InvariantCulture, $"Id = {Id}, ");
+        builder.Append(CultureInfo.InvariantCulture, $"Name = {Name}");
+
+        return true;
     }
 }

@@ -69,6 +69,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amarok.Fabric.Abstractions.Tests", "tests\Amarok\Amarok.Fabric.Abstractions.Tests\Amarok.Fabric.Abstractions.Tests.csproj", "{E2E4C060-9A7D-42AE-B771-D683790E05B3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B0DDECFD-F26A-4E25-B8F8-35A6B5032570}"
+	ProjectSection(SolutionItems) = preProject
+		tests\InlayTester\Directory.Build.props = tests\InlayTester\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InlayTester.Domain.Tests", "tests\InlayTester\InlayTester.Domain.Tests\InlayTester.Domain.Tests.csproj", "{6092E183-91B0-4A26-B33A-8D9D7EB72497}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -144,6 +149,10 @@ Global
 		{E2E4C060-9A7D-42AE-B771-D683790E05B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2E4C060-9A7D-42AE-B771-D683790E05B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2E4C060-9A7D-42AE-B771-D683790E05B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6092E183-91B0-4A26-B33A-8D9D7EB72497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6092E183-91B0-4A26-B33A-8D9D7EB72497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6092E183-91B0-4A26-B33A-8D9D7EB72497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6092E183-91B0-4A26-B33A-8D9D7EB72497}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +177,7 @@ Global
 		{ED3F860C-D374-4C9A-89CD-EE8BF5DBB927} = {DE9FE359-AFA3-4AB3-9AC1-28AD004AF507}
 		{E2E4C060-9A7D-42AE-B771-D683790E05B3} = {F0973331-53FE-40FF-8D3A-E2ABE6AB022C}
 		{B0DDECFD-F26A-4E25-B8F8-35A6B5032570} = {5D053F7D-7F04-487C-B5F8-3BECA07262A3}
+		{6092E183-91B0-4A26-B33A-8D9D7EB72497} = {B0DDECFD-F26A-4E25-B8F8-35A6B5032570}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E14218C4-EF6A-4A40-9B9D-2D44C4F264EB}

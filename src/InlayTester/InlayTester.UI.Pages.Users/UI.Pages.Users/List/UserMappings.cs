@@ -20,7 +20,7 @@ internal static partial class UserMappings
             Parent       = parent,
             Name         = user.Name,
             Roles        = user.RolesAsText,
-            LastModified = localizer["users.label-modified", user.ModifiedText],
+            LastModified = localizer["users.label-modified", user.ModifiedAsText],
         };
     }
 }

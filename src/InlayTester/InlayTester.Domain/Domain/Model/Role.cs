@@ -1,5 +1,8 @@
 ﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
 
+using System.Text;
+
+
 namespace InlayTester.Domain;
 
 
@@ -17,4 +20,13 @@ public sealed record class Role(Id Id, String Name)
     public Boolean IsMachineSetter => Id == MachineSetterId;
 
     public Boolean IsAdministrator => Id == AdministratorId;
+
+
+    private Boolean PrintMembers(StringBuilder builder)
+    {
+        builder.Append(CultureInfo.InvariantCulture, $"Id = {Id}, ");
+        builder.Append(CultureInfo.InvariantCulture, $"Name = {Name}");
+
+        return true;
+    }
 }
