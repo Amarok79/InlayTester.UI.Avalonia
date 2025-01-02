@@ -99,6 +99,10 @@ msgbox-delete-message = "You are about to permanently delete this user."
 msgbox-delete-accept = "DELETE"
 msgbox-delete-cancel = "KEEP"
 
+msgbox-cant-delete-title = "Unable to delete user '{0}'"
+msgbox-cant-delete-message = "Can't delete the currently logged-in user."
+msgbox-cant-delete-accept = "OK"
+
 validation-error-password-mismatch = "Passwords must match"
 validation-error-role-required = "A single role is required"
 validation-error-name-exists = "Name must be unique"

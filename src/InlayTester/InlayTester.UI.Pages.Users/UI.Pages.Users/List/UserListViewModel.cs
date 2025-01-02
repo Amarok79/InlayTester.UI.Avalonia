@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
+﻿// Copyright (c) 2025, Olaf Kober <olaf.kober@outlook.com>
 
 using System.Reactive.Linq;
 using Amarok.Fabric;
@@ -22,6 +22,9 @@ public partial class UserListViewModel : PageViewModel
 {
     [Import]
     public required IUserManager UserManager { get; set; }
+
+    [Import]
+    public required IUserSessionManager UserSessionManager { get; set; }
 
 
     public UserListViewModel()
@@ -135,7 +138,15 @@ public partial class UserListViewModel : PageViewModel
     [RelayCommand(CanExecute = nameof(CanDelete))]
     private async Task Delete(UserListItemViewModel item)
     {
-        if (item.CanDelete)
+        if (item.User.Id == UserSessionManager.Current?.Id)
+        {
+            await Shell.MessageBox.ShowInfoAsync(
+                ("users.msgbox-cant-delete-title", item.Name!),
+                "users.msgbox-cant-delete-message",
+                "users.msgbox-cant-delete-accept"
+            );
+        }
+        else if (item.CanDelete)
         {
             var result = await Shell.MessageBox.ShowConfirmationAsync(
                 ("users.msgbox-delete-question", item.Name!),

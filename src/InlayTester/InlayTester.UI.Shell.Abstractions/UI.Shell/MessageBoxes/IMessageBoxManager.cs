@@ -9,6 +9,13 @@ namespace InlayTester.UI.Shell;
 
 public interface IMessageBoxManager
 {
+    Task ShowInfoAsync(
+        Localizable title,
+        Localizable message,
+        Localizable accept,
+        CancellationToken cancellationToken = default
+    );
+
     Task<MessageBoxResult> ShowConfirmationAsync(
         Localizable question,
         Localizable consequence,

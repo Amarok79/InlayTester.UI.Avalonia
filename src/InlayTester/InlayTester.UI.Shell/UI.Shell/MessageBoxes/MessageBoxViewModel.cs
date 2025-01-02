@@ -34,6 +34,23 @@ public partial class MessageBoxViewModel : ObservableObject,
     public required ILoggerFactory LoggerFactory { get; set; }
 
 
+    public Task ShowInfoAsync(
+        Localizable title,
+        Localizable message,
+        Localizable accept,
+        CancellationToken cancellationToken = default
+    )
+    {
+        return ShowAsync(
+            MessageBoxStyle.Info,
+            title.GetString(Loc),
+            message.GetString(Loc),
+            acceptText: accept.GetString(Loc),
+            cancelIsVisible: false,
+            cancellationToken: cancellationToken
+        );
+    }
+
     public Task<MessageBoxResult> ShowConfirmationAsync(
         Localizable question,
         Localizable consequence,
