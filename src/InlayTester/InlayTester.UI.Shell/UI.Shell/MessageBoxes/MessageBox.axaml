@@ -121,7 +121,7 @@
                         Grid.Column="2"
                         VerticalAlignment="Center"
                         Classes="theme-text-heading"
-                        Foreground="{a:ThemeResource DefaultForegroundBrushMax}"
+                        Foreground="{a:ThemeResource DefaultForegroundBrush}"
                         IsTabStop="False"
                         Text="{Binding Title}"
                         TextTrimming="CharacterEllipsis"
@@ -131,7 +131,7 @@
                     <SelectableTextBlock
                         Grid.Row="2"
                         Grid.Column="2"
-                        Foreground="{a:ThemeResource DefaultForegroundBrushMax}"
+                        Foreground="{a:ThemeResource DefaultForegroundBrush}"
                         IsTabStop="False"
                         Text="{Binding Text}"
                         TextWrapping="Wrap">
@@ -149,7 +149,7 @@
                             Classes="it-button theme-soft"
                             Command="{Binding CancelCommand}"
                             Content="{Binding CancelText}"
-                            IsVisible="{Binding IsCancelVisible}">
+                            IsVisible="{Binding IsCancelVisible}"
                             ToolTip.Tip="{f:GetText shell.tooltip-cancel}">
                         </Button>
                         <Button
@@ -159,7 +159,7 @@
                             Classes.danger="{Binding IsDangerColorStyle}"
                             Classes.warning="{Binding IsWarningColorStyle}"
                             Command="{Binding AcceptCommand}"
-                            Content="{Binding AcceptText}">
+                            Content="{Binding AcceptText}"
                             ToolTip.Tip="{f:GetText shell.tooltip-accept}">
                         </Button>
                     </StackPanel>

@@ -110,7 +110,7 @@
                     <TextBlock
                         Grid.Column="2"
                         Classes="theme-text-heading size-sm"
-                        Foreground="{a:ThemeResource DefaultForegroundBrushMax}"
+                        Foreground="{a:ThemeResource DefaultForegroundBrush}"
                         Text="{Binding PageTitle, Mode=OneWay}">
                     </TextBlock>
 
