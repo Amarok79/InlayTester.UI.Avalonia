@@ -122,14 +122,14 @@
                     Command="{Binding CancelCommand}"
                     Content="{Binding CancelLabel}"
                     IsCancel="True"
-                    ToolTip.Tip="Esc">
+                    ToolTip.Tip="{f:GetText users.tooltip-cancel}">
                 </Button>
                 <Button
                     Classes="it-button theme-solid accent"
                     Command="{Binding AcceptCommand}"
                     Content="{Binding AcceptLabel}"
                     IsDefault="True"
-                    ToolTip.Tip="Enter">
+                    ToolTip.Tip="{f:GetText users.tooltip-accept}">
                 </Button>
             </StackPanel>
 

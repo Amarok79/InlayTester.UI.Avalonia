@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
     xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:v="clr-namespace:InlayTester.UI.Shell"
@@ -149,6 +150,7 @@
                             Command="{Binding CancelCommand}"
                             Content="{Binding CancelText}"
                             IsVisible="{Binding IsCancelVisible}">
+                            ToolTip.Tip="{f:GetText shell.tooltip-cancel}">
                         </Button>
                         <Button
                             Name="AcceptButton"
@@ -158,6 +160,7 @@
                             Classes.warning="{Binding IsWarningColorStyle}"
                             Command="{Binding AcceptCommand}"
                             Content="{Binding AcceptText}">
+                            ToolTip.Tip="{f:GetText shell.tooltip-accept}">
                         </Button>
                     </StackPanel>
 

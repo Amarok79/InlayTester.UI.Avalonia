@@ -23,7 +23,8 @@ button-theme = "Toggle theme"
 tooltip-home = "Home (Ctrl+H)"
 tooltip-logged-in = "User '{0}' is currently logged in"
 tooltip-logged-out = "No user logged in"
-
+tooltip-cancel = "Esc"
+tooltip-accept = "Enter"
 
 
 # Home
@@ -90,6 +91,8 @@ tooltip-create = "Ctrl+T"
 tooltip-search = "Ctrl+F"
 tooltip-delete = "Delete (Ctrl+Del)"
 tooltip-edit = "Edit (Ctrl+E)"
+tooltip-cancel = "Esc"
+tooltip-accept = "Enter"
 
 msgbox-delete-question = "Delete user '{0}'?"
 msgbox-delete-message = "You are about to permanently delete this user."
