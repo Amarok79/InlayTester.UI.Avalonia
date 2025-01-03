@@ -72,7 +72,7 @@
                     Command="{Binding LoginCommand}"
                     Content="{f:GetText login.button-login}"
                     IsDefault="True"
-                    ToolTip.Tip="{f:GetText login.tooltip-cancel}">
+                    ToolTip.Tip="{f:GetText login.tooltip-login}">
                 </Button>
             </StackPanel>
 
