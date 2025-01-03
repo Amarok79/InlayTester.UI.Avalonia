@@ -16,6 +16,8 @@ public sealed class SingleRoleRequiredAttribute : ViewModelValidationAttributeBa
 
     protected override ValidationResult? IsValid(UserEditViewModel vm, ValidationContext ctx)
     {
-        return vm is { MachineOperator: false, MachineSetter: false, Administrator: false } ? Error() : Success();
+        return vm is { MachineOperator: false, MachineSetter: false, Administrator: false }
+            ? Error()
+            : Success();
     }
 }

@@ -11,7 +11,10 @@ namespace Amarok.Fabric.Avalonia;
 
 internal sealed class ContainerFactory
 {
-    public Container Create(IEnumerable<String> assemblyIncludeGlobs, IEnumerable<String> assemblyExcludeGlobs)
+    public Container Create(
+        IEnumerable<String> assemblyIncludeGlobs,
+        IEnumerable<String> assemblyExcludeGlobs
+    )
     {
         var container = new Container(
             Rules.Default.WithMicrosoftDependencyInjectionRules()

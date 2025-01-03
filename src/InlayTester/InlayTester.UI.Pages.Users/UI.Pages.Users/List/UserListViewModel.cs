@@ -31,7 +31,9 @@ public partial class UserListViewModel : PageViewModel
     {
         mUsersSource.Connect()
             .Filter(
-                this.WhenValueChanged(x => x.SearchText).Throttle(TimeSpan.FromMilliseconds(100)).Select(filterFunc)
+                this.WhenValueChanged(x => x.SearchText)
+                    .Throttle(TimeSpan.FromMilliseconds(100))
+                    .Select(filterFunc)
             )
             .Sort(SortExpressionComparer<UserListItemViewModel>.Ascending(x => x.Name ?? String.Empty))
             .Bind(out _Users)

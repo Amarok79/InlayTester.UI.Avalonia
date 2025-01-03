@@ -21,7 +21,7 @@ partial class LoginOverlayViewModel
     [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired]
     private User? _SelectedUser;
 
-    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired] [PasswordsMismatch]
+    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired] [PasswordMismatch]
     private String? _Password;
 
     [ObservableProperty]

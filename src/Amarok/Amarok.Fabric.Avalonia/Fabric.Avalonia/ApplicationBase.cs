@@ -27,7 +27,10 @@ public abstract class ApplicationBase : Application,
     {
         base.Initialize();
 
-        var container = new ContainerFactory().Create(OnGetAssemblyIncludePatterns(), OnGetAssemblyExcludePatterns());
+        var container = new ContainerFactory().Create(
+            OnGetAssemblyIncludePatterns(),
+            OnGetAssemblyExcludePatterns()
+        );
 
         var builder = new HostBuilderFactory().Create(OnGetApplicationBuilderSettings(), container);
 

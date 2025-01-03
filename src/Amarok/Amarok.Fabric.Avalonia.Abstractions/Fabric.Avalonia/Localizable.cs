@@ -80,7 +80,9 @@ public readonly struct Localizable
     /// <summary>
     ///     Initializes a localizable text resource with the given resource key and format arguments.
     /// </summary>
-    public static implicit operator Localizable((String resourceKey, Object arg1, Object arg2, Object arg3) tuple)
+    public static implicit operator Localizable(
+        (String resourceKey, Object arg1, Object arg2, Object arg3) tuple
+    )
     {
         return new Localizable(tuple.resourceKey, tuple.arg1, tuple.arg2, tuple.arg3);
     }

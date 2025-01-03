@@ -11,8 +11,5 @@ public partial class LoginOverlay : UserControl
     public LoginOverlay()
     {
         InitializeComponent();
-
-
-        UpdateIsEffectivelyEnabled();
     }
 }

@@ -7,9 +7,9 @@ using InlayTester.Domain;
 namespace InlayTester.UI.Pages.Users;
 
 
-public sealed class PasswordsMismatchAttribute : ViewModelValidationAttributeBase<LoginOverlayViewModel>
+public sealed class PasswordMismatchAttribute : ViewModelValidationAttributeBase<LoginOverlayViewModel>
 {
-    public PasswordsMismatchAttribute()
+    public PasswordMismatchAttribute()
     {
         DefaultErrorMessage = "login.error-password-mismatch";
     }
@@ -22,6 +22,8 @@ public sealed class PasswordsMismatchAttribute : ViewModelValidationAttributeBas
             return Success();
         }
 
-        return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal) ? Success() : Error();
+        return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal)
+            ? Success()
+            : Error();
     }
 }

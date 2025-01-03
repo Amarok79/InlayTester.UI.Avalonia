@@ -29,7 +29,8 @@ public sealed record class User(Id Id, String Name)
     public IReadOnlySet<Role> Roles { get; init; } = new HashSet<Role>();
 
 
-    public String RolesAsText => String.Join(", ", Roles.OrderBy(x => x, RoleComparer.Default).Select(x => x.Name));
+    public String RolesAsText
+        => String.Join(", ", Roles.OrderBy(x => x, RoleComparer.Default).Select(x => x.Name));
 
     public String ModifiedAsText
         => ModifiedBy.IsNullOrWhitespace()
