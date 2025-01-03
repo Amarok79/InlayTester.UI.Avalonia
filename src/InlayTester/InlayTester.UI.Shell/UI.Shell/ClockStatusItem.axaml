@@ -14,8 +14,8 @@
 
     <Button
         Height="42"
-        Classes="theme-subtle"
         Focusable="False"
+        Theme="{a:ControlTheme TitleBarButton}"
         ToolTip.Tip="{Binding ToolTip}">
         <StackPanel Orientation="Horizontal">
 

@@ -2,6 +2,7 @@
     x:Class="InlayTester.UI.Pages.Users.UserStatusItem"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:a="http://schemas.actiprosoftware.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:f="http://github.com/amarok79/amarok.fabric.avalonia"
     xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
@@ -45,10 +46,9 @@
     <Button
         Height="42"
         Classes.logged-in="{Binding IsLoggedIn}"
-        Classes.theme-soft="{Binding !IsLoggedIn}"
-        Classes.theme-subtle="{Binding IsLoggedIn}"
         Command="{Binding LoginCommand}"
-        Focusable="False">
+        Focusable="False"
+        Theme="{a:ControlTheme TitleBarButton}">
 
         <StackPanel
             Margin="4"

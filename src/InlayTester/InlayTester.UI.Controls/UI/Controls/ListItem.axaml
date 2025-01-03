@@ -22,7 +22,7 @@
                 <c:ListItem
                     Icon="User"
                     IsDeleteEnabled="False"
-                    IsEditEnabled="False"
+                    IsEditEnabled="True"
                     PrimaryText="Some Text"
                     SecondaryText="Machine operator, machine setter, administrator"
                     TertiaryText="modified by on" />
@@ -144,11 +144,11 @@
                                 <Button
                                     DockPanel.Dock="Right"
                                     VerticalAlignment="Center"
-                                    Classes="theme-subtle"
                                     Command="{TemplateBinding EditCommand}"
                                     CommandParameter="{ReflectionBinding}"
                                     Focusable="False"
                                     IsEnabled="{TemplateBinding IsEditEnabled}"
+                                    Theme="{a:ControlTheme TitleBarButton}"
                                     ToolTip.Tip="{TemplateBinding EditToolTip}">
                                     <i:MaterialIcon
                                         Width="20"
@@ -160,11 +160,11 @@
                                 <Button
                                     DockPanel.Dock="Right"
                                     VerticalAlignment="Center"
-                                    Classes="theme-subtle"
                                     Command="{TemplateBinding DeleteCommand}"
                                     CommandParameter="{ReflectionBinding}"
                                     Focusable="False"
                                     IsEnabled="{TemplateBinding IsDeleteEnabled}"
+                                    Theme="{a:ControlTheme TitleBarButton}"
                                     ToolTip.Tip="{TemplateBinding DeleteToolTip}">
                                     <i:MaterialIcon
                                         Width="20"
