@@ -16,14 +16,19 @@ partial class LoginOverlayViewModel
 
 
     [ObservableProperty]
-    private ObservableCollection<User> _Users = [ ];
-
-    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired]
-    private User? _SelectedUser;
-
-    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired] [PasswordMismatch]
-    private String? _Password;
+    public partial ObservableCollection<User> Users { get; set; } = [ ];
 
     [ObservableProperty]
-    private Int32 _MaxPasswordLength = User.MaxPasswordLength;
+    [NotifyDataErrorInfo]
+    [FieldRequired]
+    public partial User? SelectedUser { get; set; }
+
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
+    [FieldRequired]
+    [PasswordMismatch]
+    public partial String? Password { get; set; }
+
+    [ObservableProperty]
+    public partial Int32 MaxPasswordLength { get; set; } = User.MaxPasswordLength;
 }

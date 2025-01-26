@@ -12,14 +12,14 @@ namespace InlayTester.UI.Pages.Users;
 partial class UserStatusItemViewModel
 {
     [ObservableProperty]
-    private Boolean _IsLoggedIn;
+    public partial Boolean IsLoggedIn { get; set; }
 
     [ObservableProperty]
-    private MaterialIconKind _Icon = UsersIcons.Login;
+    public partial MaterialIconKind Icon { get; set; } = UsersIcons.Login;
 
     [ObservableProperty]
-    private String _Text = String.Empty;
+    public partial String Text { get; set; } = String.Empty;
 
     [ObservableProperty]
-    private String _ToolTip = String.Empty;
+    public partial String ToolTip { get; set; } = String.Empty;
 }

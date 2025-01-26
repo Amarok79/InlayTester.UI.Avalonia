@@ -22,14 +22,14 @@ public partial class UserListItemViewModel : ObservableObject
 
 
     [ObservableProperty]
-    private Boolean _IsActive;
+    public partial Boolean IsActive { get; set; }
 
     [ObservableProperty]
-    private String? _Name;
+    public partial String? Name { get; set; }
 
     [ObservableProperty]
-    private String? _Roles;
+    public partial String? Roles { get; set; }
 
     [ObservableProperty]
-    private String? _LastModified;
+    public partial String? LastModified { get; set; }
 }

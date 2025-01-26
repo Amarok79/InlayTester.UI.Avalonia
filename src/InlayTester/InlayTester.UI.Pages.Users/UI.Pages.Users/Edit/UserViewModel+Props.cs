@@ -16,56 +16,63 @@ partial class UserEditViewModel
 
 
     [ObservableProperty]
-    private Boolean _IsNameEnabled;
+    public partial Boolean IsNameEnabled { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsRolesEnabled;
-
-
-    [ObservableProperty]
-    private MaterialIconKind? _PageIcon;
+    public partial Boolean IsRolesEnabled { get; set; }
 
     [ObservableProperty]
-    private String? _PageHeader;
-
-
-    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired] [UniqueNameRequired]
-    private String? _Name;
+    public partial MaterialIconKind? PageIcon { get; set; }
 
     [ObservableProperty]
-    private Int32 _MaxNameLength = User.MaxNameLength;
-
-    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired]
-    private String? _Password1;
-
-    [ObservableProperty] [NotifyDataErrorInfo] [FieldRequired] [MatchingPasswordsRequired]
-    private String? _Password2;
+    public partial String? PageHeader { get; set; }
 
     [ObservableProperty]
-    private Int32 _MaxPasswordLength = User.MaxPasswordLength;
-
-    [ObservableProperty] [NotifyDataErrorInfo] [SingleRoleRequired]
-    private Object? _Roles;
-
-    [ObservableProperty]
-    private Boolean _MachineOperator;
+    [NotifyDataErrorInfo]
+    [FieldRequired]
+    [UniqueNameRequired]
+    public partial String? Name { get; set; }
 
     [ObservableProperty]
-    private Boolean _MachineSetter;
+    public partial Int32 MaxNameLength { get; set; } = User.MaxNameLength;
 
     [ObservableProperty]
-    private Boolean _Administrator;
+    [NotifyDataErrorInfo]
+    [FieldRequired]
+    public partial String? Password1 { get; set; }
 
     [ObservableProperty]
-    private String? _Notes;
+    [NotifyDataErrorInfo]
+    [FieldRequired]
+    [MatchingPasswordsRequired]
+    public partial String? Password2 { get; set; }
 
     [ObservableProperty]
-    private Int32 _MaxNotesLength = User.MaxNotesLength;
-
-
-    [ObservableProperty]
-    private String? _AcceptLabel;
+    public partial Int32 MaxPasswordLength { get; set; } = User.MaxPasswordLength;
 
     [ObservableProperty]
-    private String? _CancelLabel;
+    [NotifyDataErrorInfo]
+    [SingleRoleRequired]
+    public partial Object? Roles { get; set; }
+
+    [ObservableProperty]
+    public partial Boolean MachineOperator { get; set; }
+
+    [ObservableProperty]
+    public partial Boolean MachineSetter { get; set; }
+
+    [ObservableProperty]
+    public partial Boolean Administrator { get; set; }
+
+    [ObservableProperty]
+    public partial String? Notes { get; set; }
+
+    [ObservableProperty]
+    public partial Int32 MaxNotesLength { get; set; } = User.MaxNotesLength;
+
+    [ObservableProperty]
+    public partial String? AcceptLabel { get; set; }
+
+    [ObservableProperty]
+    public partial String? CancelLabel { get; set; }
 }

@@ -13,36 +13,35 @@ namespace InlayTester.UI.Shell;
 partial class ShellViewModel
 {
     [ObservableProperty]
-    private Boolean _IsBaseLayerEnabled = true;
+    public partial Boolean IsBaseLayerEnabled { get; set; } = true;
 
     [ObservableProperty]
-    private Boolean _IsMessageBoxLayerEnabled = true;
+    public partial Boolean IsMessageBoxLayerEnabled { get; set; } = true;
 
     [ObservableProperty]
-    private Boolean _IsOverlayLayerEnabled = true;
-
-
-    [ObservableProperty]
-    private String? _WindowTitle;
+    public partial Boolean IsOverlayLayerEnabled { get; set; } = true;
 
     [ObservableProperty]
-    private WindowIcon? _WindowIcon;
+    public partial String? WindowTitle { get; set; }
 
     [ObservableProperty]
-    private String? _PageTitle;
+    public partial WindowIcon? WindowIcon { get; set; }
 
     [ObservableProperty]
-    private Object? _Page;
+    public partial String? PageTitle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsPageTransitionReversed;
+    public partial Object? Page { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsHomeButtonVisible;
+    public partial Boolean IsPageTransitionReversed { get; set; }
 
     [ObservableProperty]
-    private ICommand? _HomeCommand;
+    public partial Boolean IsHomeButtonVisible { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsUserStatusItemEnabled;
+    public partial ICommand? HomeCommand { get; set; }
+
+    [ObservableProperty]
+    public partial Boolean IsUserStatusItemEnabled { get; set; }
 }

@@ -22,11 +22,10 @@ public partial class ClockStatusItemViewModel : ObservableObject,
 
 
     [ObservableProperty]
-    private String _Text = String.Empty;
+    public partial String Text { get; set; } = String.Empty;
 
     [ObservableProperty]
-    private String _ToolTip = String.Empty;
-
+    public partial String ToolTip { get; set; } = String.Empty;
 
     public Task ActivatedAsync()
     {

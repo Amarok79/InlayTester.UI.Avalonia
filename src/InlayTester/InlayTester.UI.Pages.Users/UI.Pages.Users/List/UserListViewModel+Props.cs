@@ -18,16 +18,16 @@ partial class UserListViewModel
 
 
     [ObservableProperty]
-    private MaterialIconKind? _PageIcon;
+    public partial MaterialIconKind? PageIcon { get; set; }
 
     [ObservableProperty]
-    private String? _PageHeader;
+    public partial String? PageHeader { get; set; }
 
     [ObservableProperty]
-    private String? _SearchText;
+    public partial String? SearchText { get; set; }
 
     [ObservableProperty]
-    private Int32 _MaxSearchTextLength = User.MaxNameLength;
+    public partial Int32 MaxSearchTextLength { get; set; } = User.MaxNameLength;
 
     [ObservableProperty]
     private ReadOnlyObservableCollection<UserListItemViewModel> _Users = null!;

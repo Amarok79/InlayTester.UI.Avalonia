@@ -11,8 +11,8 @@ namespace InlayTester.UI.Shell;
 partial class OverlayViewModel
 {
     [ObservableProperty]
-    private Boolean _IsOpen;
+    public partial Boolean IsOpen { get; set; }
 
     [ObservableProperty]
-    private Object? _Content;
+    public partial Object? Content { get; set; }
 }

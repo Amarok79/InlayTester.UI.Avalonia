@@ -13,50 +13,50 @@ namespace InlayTester.UI.Shell;
 partial class MessageBoxViewModel
 {
     [ObservableProperty]
-    private Boolean _IsOpen;
+    public partial Boolean IsOpen { get; set; }
 
     [ObservableProperty]
-    private MaterialIconKind _Icon;
+    public partial MaterialIconKind Icon { get; set; }
 
     [ObservableProperty]
-    private String? _Title;
+    public partial String? Title { get; set; }
 
     [ObservableProperty]
-    private String? _Text;
+    public partial String? Text { get; set; }
 
     [ObservableProperty]
-    private String? _AcceptText;
+    public partial String? AcceptText { get; set; }
 
     [ObservableProperty]
-    private String? _CancelText;
+    public partial String? CancelText { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsCancelVisible;
+    public partial Boolean IsCancelVisible { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsInfoStyle;
+    public partial Boolean IsInfoStyle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsQuestionStyle;
+    public partial Boolean IsQuestionStyle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsWarningStyle;
+    public partial Boolean IsWarningStyle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsErrorStyle;
+    public partial Boolean IsErrorStyle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsAccentColorStyle;
+    public partial Boolean IsAccentColorStyle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsWarningColorStyle;
+    public partial Boolean IsWarningColorStyle { get; set; }
 
     [ObservableProperty]
-    private Boolean _IsDangerColorStyle;
+    public partial Boolean IsDangerColorStyle { get; set; }
 
     [ObservableProperty]
-    private IRelayCommand? _AcceptCommand;
+    public partial IRelayCommand? AcceptCommand { get; set; }
 
     [ObservableProperty]
-    private IRelayCommand? _CancelCommand;
+    public partial IRelayCommand? CancelCommand { get; set; }
 }

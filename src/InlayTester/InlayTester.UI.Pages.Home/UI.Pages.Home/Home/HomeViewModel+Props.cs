@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
+﻿// Copyright (c) 2025, Olaf Kober <olaf.kober@outlook.com>
 
 // ReSharper disable InconsistentNaming
 
@@ -19,5 +19,5 @@ partial class HomeViewModel
     [NotifyCanExecuteChangedFor(nameof(ManageDriveWheelCommand))]
     [NotifyCanExecuteChangedFor(nameof(AdministerUsersCommand))]
     [NotifyCanExecuteChangedFor(nameof(AdministerSettingsCommand))]
-    private User? _CurrentUser;
+    public partial User? CurrentUser { get; set; }
 }

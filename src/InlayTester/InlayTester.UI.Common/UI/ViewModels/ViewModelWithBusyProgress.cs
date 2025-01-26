@@ -22,8 +22,7 @@ public abstract partial class ViewModelWithBusyProgress : ViewModelWithBusy
     ///     Indicates whether the busy progress should be shown.
     /// </summary>
     [ObservableProperty]
-    private Boolean _IsBusyProgressVisible;
-
+    public partial Boolean IsBusyProgressVisible { get; set; }
 
     protected override Task OnActivatedAsync()
     {

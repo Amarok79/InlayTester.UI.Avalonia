@@ -17,7 +17,7 @@ public abstract partial class ViewModelWithBusy : ViewModelWithActivation
     ///     Indicates whether the application is busy and parts of the UI should get disabled.
     /// </summary>
     [ObservableProperty]
-    private Boolean _IsBusy;
+    public partial Boolean IsBusy { get; set; }
 
 
     /// <summary>

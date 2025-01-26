@@ -9,6 +9,7 @@
         <ImplicitUsings>Enable</ImplicitUsings>
         <IsPackable>False</IsPackable>
         <IsPublishable>False</IsPublishable>
+        <LangVersion>Preview</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>
