@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
+﻿// Copyright (c) 2025, Olaf Kober <olaf.kober@outlook.com>
 
 using NFluent.Helpers;
 
@@ -25,7 +25,8 @@ public class UserTests
         Check.That(su.IsMachineSetter).IsFalse();
         Check.That(su.IsAdministrator).IsFalse();
         Check.That(su.IsSupervisor).IsTrue();
-        Check.That(su.ToString()).IsEqualTo("User { Id = f522bd39da0741ada70f04f4fdfc5a6d, Name = supervisor }");
+        Check.That(su.ToString())
+            .IsEqualTo("User { Id = f522bd39da0741ada70f04f4fdfc5a6d, Name = supervisor }");
     }
 
     [Test]
@@ -44,8 +45,7 @@ public class UserTests
                     new Role(Role.MachineSetterId, "s"),
                     new Role(Role.AdministratorId, "a"),
                 ]
-            ),
-        };
+            ) };
 
         Check.That(su.Id).IsEqualTo(User.SupervisorId);
         Check.That(su.Name).IsEqualTo("supervisor");
@@ -78,7 +78,8 @@ public class UserTests
                     new Role(Role.MachineSetterId, "s"),
                     new Role(Role.MachineOperatorId, "o"),
                 ]
-            ) };
+            ),
+        };
 
         Check.That(su.RolesAsText).IsEqualTo("o, s, a");
     }
@@ -155,7 +156,8 @@ public class UserTests
                     new Role(Role.MachineSetterId, "setter"),
                     new Role(Role.AdministratorId, "admin"),
                 ]
-            ) };
+            ),
+        };
 
         Check.That(us.Filter(null)).IsTrue();
         Check.That(us.Filter("")).IsTrue();

@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2024, Olaf Kober <olaf.kober@outlook.com>
+﻿// Copyright (c) 2025, Olaf Kober <olaf.kober@outlook.com>
 
 using Amarok.Fabric.Avalonia.Infrastructure;
 using Moq;
