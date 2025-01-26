@@ -51,7 +51,7 @@
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="9.0.1" />
     <PackageVersion Include="Bogus" Version="35.6.1" />
     <PackageVersion Include="DynamicData" Version="9.1.1" />
-    <PackageVersion Include="Material.Icons.Avalonia" Version="2.1.12" />
+    <PackageVersion Include="Material.Icons.Avalonia" Version="2.2.0" />
     <PackageVersion Include="Serilog" Version="4.2.0" />
     <PackageVersion Include="Serilog.Enrichers.Thread" Version="4.0.0" />
     <PackageVersion Include="Serilog.Extensions.Hosting" Version="9.0.0" />
