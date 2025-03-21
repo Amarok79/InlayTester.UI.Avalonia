@@ -22,7 +22,7 @@ public interface IShell
 
     public String? PageTitle { get; set; }
 
-    public ICommand HomeCommand { get; set; }
+    public ICommand? HomeCommand { get; set; }
 
     public Boolean IsHomeButtonVisible { get; set; }
 
