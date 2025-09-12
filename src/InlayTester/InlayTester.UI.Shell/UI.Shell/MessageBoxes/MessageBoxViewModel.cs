@@ -71,11 +71,7 @@ public partial class MessageBoxViewModel : ObservableObject,
     }
 
 
-    public Task ShowErrorAsync(
-        String errorCode,
-        Exception exception,
-        CancellationToken cancellationToken = default
-    )
+    public Task ShowErrorAsync(String errorCode, Exception exception, CancellationToken cancellationToken = default)
     {
         LoggerFactory.CreateLogger("App").LogError(exception, "ERROR: {ErrorCode}", errorCode);
 

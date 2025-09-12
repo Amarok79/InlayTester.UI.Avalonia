@@ -78,12 +78,11 @@ public class TextField : TemplatedControl
 
     #region Text
 
-    public static readonly StyledProperty<String?> TextProperty =
-        AvaloniaProperty.Register<TextField, String?>(
-            nameof(Text),
-            defaultBindingMode: BindingMode.TwoWay,
-            enableDataValidation: true
-        );
+    public static readonly StyledProperty<String?> TextProperty = AvaloniaProperty.Register<TextField, String?>(
+        nameof(Text),
+        defaultBindingMode: BindingMode.TwoWay,
+        enableDataValidation: true
+    );
 
     public String? Text
     {
@@ -154,11 +153,7 @@ public class TextField : TemplatedControl
         _UpdateKind(Kind);
     }
 
-    protected override void UpdateDataValidation(
-        AvaloniaProperty property,
-        BindingValueType state,
-        Exception? error
-    )
+    protected override void UpdateDataValidation(AvaloniaProperty property, BindingValueType state, Exception? error)
     {
         if (property == TextProperty && mTextBox != null)
         {

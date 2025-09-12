@@ -79,11 +79,7 @@ public partial class OverlayViewModel : ObservableObject,
 
         LayerManager.HideOverlay();
 
-        Logger.LogInformation(
-            "Closed {ViewModel} overlay -> Result: {Result}",
-            viewModel.GetType().Name,
-            result
-        );
+        Logger.LogInformation("Closed {ViewModel} overlay -> Result: {Result}", viewModel.GetType().Name, result);
 
 
         return result;

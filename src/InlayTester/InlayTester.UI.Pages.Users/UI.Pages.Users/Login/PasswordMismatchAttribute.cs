@@ -22,8 +22,6 @@ public sealed class PasswordMismatchAttribute : ViewModelValidationAttributeBase
             return Success();
         }
 
-        return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal)
-            ? Success()
-            : Error();
+        return String.Equals(vm.Password, vm.UserToValidate.Password, StringComparison.Ordinal) ? Success() : Error();
     }
 }

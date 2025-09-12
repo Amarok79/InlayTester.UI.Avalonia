@@ -15,8 +15,8 @@ public class HotKeyHelper : Control,
 {
     #region HotKey
 
-    public static readonly StyledProperty<KeyGesture?> HotKeyProperty =
-        HotKeyManager.HotKeyProperty.AddOwner<HotKeyHelper>();
+    public static readonly StyledProperty<KeyGesture?> HotKeyProperty = HotKeyManager.HotKeyProperty
+        .AddOwner<HotKeyHelper>();
 
     public KeyGesture? HotKey
     {

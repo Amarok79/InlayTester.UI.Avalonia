@@ -98,9 +98,8 @@ internal sealed class BuiltInViewFactory : IViewFactory
 
         throw new ArgumentException(
             $"Unable to determine the View associated with a View Model. The View Model type '{
-                viewModel.GetType().FullName}' is not annotated with attribute '{
-                    typeof(ViewAttribute).FullName}' nor does it realize interface '{
-                        typeof(IViewAware).FullName}'."
+                viewModel.GetType().FullName}' is not annotated with attribute '{typeof(ViewAttribute).FullName
+                }' nor does it realize interface '{typeof(IViewAware).FullName}'."
         );
     }
 }

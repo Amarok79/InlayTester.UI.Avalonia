@@ -187,11 +187,10 @@ public class ListItem : TemplatedControl
 
     #region IsActive
 
-    public static readonly StyledProperty<Boolean> IsActiveProperty =
-        AvaloniaProperty.Register<ListItem, Boolean>(
-            nameof(IsActive),
-            defaultBindingMode: BindingMode.OneWayToSource
-        );
+    public static readonly StyledProperty<Boolean> IsActiveProperty = AvaloniaProperty.Register<ListItem, Boolean>(
+        nameof(IsActive),
+        defaultBindingMode: BindingMode.OneWayToSource
+    );
 
     public Boolean IsActive
     {
@@ -204,11 +203,7 @@ public class ListItem : TemplatedControl
     #region Command
 
     public static readonly DirectProperty<ListItem, ICommand?> CommandProperty =
-        AvaloniaProperty.RegisterDirect<ListItem, ICommand?>(
-            nameof(Command),
-            o => o.Command,
-            (o, v) => o.Command = v
-        );
+        AvaloniaProperty.RegisterDirect<ListItem, ICommand?>(nameof(Command), o => o.Command, (o, v) => o.Command = v);
 
     private ICommand? mCommand;
 

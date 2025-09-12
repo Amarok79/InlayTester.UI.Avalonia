@@ -111,21 +111,29 @@ public class LocalizableTests
         Localizable s = ("key", 123, "bbb", 12.3, "c", 999);
 
         Check.That(s.ResourceKey).IsEqualTo("key");
-        Check.That(s.Args).ContainsExactly(123, "bbb", 12.3, "c", 999);
+        Check.That(s.Args)
+        .ContainsExactly(
+            123,
+            "bbb",
+            12.3,
+            "c",
+            999
+        );
     }
 
     [Test]
     public void New_from_Tuple_ImplicitCast_String_Args()
     {
-        Localizable s = ("key", [
+        Localizable s = ("key", [ 123, "bbb", 12.3, "c", 999 ]);
+
+        Check.That(s.ResourceKey).IsEqualTo("key");
+        Check.That(s.Args)
+        .ContainsExactly(
             123,
             "bbb",
             12.3,
             "c",
-            999,
-        ]);
-
-        Check.That(s.ResourceKey).IsEqualTo("key");
-        Check.That(s.Args).ContainsExactly(123, "bbb", 12.3, "c", 999);
+            999
+        );
     }
 }

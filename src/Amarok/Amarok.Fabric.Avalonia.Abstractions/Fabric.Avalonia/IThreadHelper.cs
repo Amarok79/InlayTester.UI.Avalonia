@@ -34,12 +34,14 @@ public interface IThreadHelper
 
 
     /// <summary>
-    ///     Runs the specified asynchronous method to completion while synchronously blocking the calling thread.
+    ///     Runs the specified asynchronous method to completion while synchronously blocking the calling
+    ///     thread.
     /// </summary>
     void Run(Func<Task> asyncAction);
 
     /// <summary>
-    ///     Runs the specified asynchronous method to completion while synchronously blocking the calling thread.
+    ///     Runs the specified asynchronous method to completion while synchronously blocking the calling
+    ///     thread.
     /// </summary>
     T Run<T>(Func<Task<T>> asyncFunc);
 

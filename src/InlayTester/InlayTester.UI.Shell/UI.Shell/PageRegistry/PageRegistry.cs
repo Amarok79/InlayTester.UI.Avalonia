@@ -19,8 +19,7 @@ internal sealed class PageRegistry : IPageRegistry
 
     private static List<PageDescriptor> _ResolvePages(IEnumerable<IPageProvider> providers)
     {
-        var map = providers.SelectMany(provider => provider.GetPages())
-            .ToDictionary(descriptor => descriptor.Id);
+        var map = providers.SelectMany(provider => provider.GetPages()).ToDictionary(descriptor => descriptor.Id);
 
         return map.Values.ToList();
     }

@@ -4,8 +4,8 @@ namespace Amarok.Fabric.Avalonia;
 
 
 /// <summary>
-///     An interface that View Model types should implement in order to respond to activation (load) and
-///     deactivation (unload) events.
+///     An interface that View Model types should implement in order to respond to activation (load)
+///     and deactivation (unload) events.
 /// </summary>
 public interface IActivationAware
 {

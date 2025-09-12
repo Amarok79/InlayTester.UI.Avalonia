@@ -73,7 +73,13 @@ public class App : ApplicationBase
                 .Enrich.WithThreadId()
                 .WriteTo.Async(
                     x => x.File(
-                        Path.Combine(AppContext.BaseDirectory, "..", "logs", "ui", "InlayTester.UI..log"),
+                        Path.Combine(
+                            AppContext.BaseDirectory,
+                            "..",
+                            "logs",
+                            "ui",
+                            "InlayTester.UI..log"
+                        ),
                         rollingInterval: RollingInterval.Day,
                         retainedFileCountLimit: 31,
                         rollOnFileSizeLimit: true,
@@ -121,9 +127,7 @@ public class App : ApplicationBase
     {
         var logger = ServiceProvider.GetRequiredService<ILogger<App>>();
 
-        logger.LogInformation(
-            "--------------------------------------------------------------------------------"
-        );
+        logger.LogInformation("--------------------------------------------------------------------------------");
 
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
@@ -139,8 +143,7 @@ public class App : ApplicationBase
 
         var shell = ServiceProvider.GetRequiredService<IShell>();
 
-        shell.WindowIcon =
-            new WindowIcon(AssetLoader.Open(new Uri("avares://InlayTester.UI/Assets/app.png")));
+        shell.WindowIcon = new WindowIcon(AssetLoader.Open(new Uri("avares://InlayTester.UI/Assets/app.png")));
 
         shell.WindowTitle = "Inlay Tester UI";
 

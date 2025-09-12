@@ -25,14 +25,20 @@ public class UserTests
         Check.That(su.IsMachineSetter).IsFalse();
         Check.That(su.IsAdministrator).IsFalse();
         Check.That(su.IsSupervisor).IsTrue();
-        Check.That(su.ToString())
-            .IsEqualTo("User { Id = f522bd39da0741ada70f04f4fdfc5a6d, Name = supervisor }");
+        Check.That(su.ToString()).IsEqualTo("User { Id = f522bd39da0741ada70f04f4fdfc5a6d, Name = supervisor }");
     }
 
     [Test]
     public void Usage()
     {
-        var now = new DateTime(2024, 12, 13, 11, 22, 33);
+        var now = new DateTime(
+            2024,
+            12,
+            13,
+            11,
+            22,
+            33
+        );
 
         var su = new User(User.SupervisorId, "supervisor") {
             Password   = "ppp",
@@ -41,11 +47,11 @@ public class UserTests
             Notes      = "nnn",
             Roles = new HashSet<Role>(
                 [
-                    new Role(Role.MachineOperatorId, "o"),
-                    new Role(Role.MachineSetterId, "s"),
+                    new Role(Role.MachineOperatorId, "o"), new Role(Role.MachineSetterId, "s"),
                     new Role(Role.AdministratorId, "a"),
                 ]
-            ) };
+            ),
+        };
 
         Check.That(su.Id).IsEqualTo(User.SupervisorId);
         Check.That(su.Name).IsEqualTo("supervisor");
@@ -74,12 +80,10 @@ public class UserTests
         var su = new User(User.SupervisorId, "supervisor") {
             Roles = new HashSet<Role>(
                 [
-                    new Role(Role.AdministratorId, "a"),
-                    new Role(Role.MachineSetterId, "s"),
+                    new Role(Role.AdministratorId, "a"), new Role(Role.MachineSetterId, "s"),
                     new Role(Role.MachineOperatorId, "o"),
                 ]
-            ),
-        };
+            ) };
 
         Check.That(su.RolesAsText).IsEqualTo("o, s, a");
     }
@@ -87,7 +91,14 @@ public class UserTests
     [Test, SetCulture("en-US")]
     public void ModifiedAsText_On()
     {
-        var now = new DateTime(2024, 12, 13, 11, 22, 33);
+        var now = new DateTime(
+            2024,
+            12,
+            13,
+            11,
+            22,
+            33
+        );
 
         var su = new User(User.SupervisorId, "supervisor") {
             ModifiedOn = now,
@@ -99,7 +110,14 @@ public class UserTests
     [Test, SetCulture("en-US")]
     public void ModifiedAsText_On_And_By()
     {
-        var now = new DateTime(2024, 12, 13, 11, 22, 33);
+        var now = new DateTime(
+            2024,
+            12,
+            13,
+            11,
+            22,
+            33
+        );
 
         var su = new User(User.SupervisorId, "supervisor") {
             ModifiedBy = "aaa",
@@ -143,7 +161,14 @@ public class UserTests
     [Test]
     public void Filter_MostlyDefinedUser()
     {
-        var now = new DateTime(2024, 12, 13, 11, 22, 33);
+        var now = new DateTime(
+            2024,
+            12,
+            13,
+            11,
+            22,
+            33
+        );
 
         var us = new User("some-id", "aaa") {
             Password   = "ppp",
@@ -152,12 +177,10 @@ public class UserTests
             Notes      = "nnn",
             Roles = new HashSet<Role>(
                 [
-                    new Role(Role.MachineOperatorId, "operator"),
-                    new Role(Role.MachineSetterId, "setter"),
+                    new Role(Role.MachineOperatorId, "operator"), new Role(Role.MachineSetterId, "setter"),
                     new Role(Role.AdministratorId, "admin"),
                 ]
-            ),
-        };
+            ) };
 
         Check.That(us.Filter(null)).IsTrue();
         Check.That(us.Filter("")).IsTrue();
