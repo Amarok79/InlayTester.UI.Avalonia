@@ -8,6 +8,7 @@
     xmlns:i="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:v="clr-namespace:InlayTester.UI.Shell"
+    xmlns:as="clr-namespace:ActiproSoftware.UI.Avalonia.Controls.Primitives;assembly=ActiproSoftware.Avalonia.Shared"
     x:DataType="v:ShellViewModel"
     Width="1024"
     Height="768"
@@ -48,7 +49,7 @@
 
         <!--  App Bar  -->
 
-        <a:ChromedTitleBar
+        <as:ChromedTitleBar
             Grid.Row="0"
             IsCloseButtonAllowed="False"
             IsEnabled="{Binding IsBaseLayerEnabled}"
@@ -56,7 +57,7 @@
             IsMaximizeButtonAllowed="False"
             IsMinimizeButtonAllowed="False">
 
-            <a:ChromedTitleBar.LeftContent>
+            <as:ChromedTitleBar.LeftContent>
 
                 <!--  App Menu  -->
 
@@ -80,9 +81,9 @@
                     </Button.Flyout>
                 </Button>
 
-            </a:ChromedTitleBar.LeftContent>
+            </as:ChromedTitleBar.LeftContent>
 
-            <a:ChromedTitleBar.Content>
+            <as:ChromedTitleBar.Content>
                 <Grid
                     Margin="12,0"
                     ColumnDefinitions="Auto,12,*">
@@ -114,9 +115,9 @@
                     </TextBlock>
 
                 </Grid>
-            </a:ChromedTitleBar.Content>
+            </as:ChromedTitleBar.Content>
 
-            <a:ChromedTitleBar.RightContent>
+            <as:ChromedTitleBar.RightContent>
                 <StackPanel
                     Margin="12,0"
                     Orientation="Horizontal"
@@ -137,8 +138,8 @@
                     </a:ToggleThemeButton>
 
                 </StackPanel>
-            </a:ChromedTitleBar.RightContent>
-        </a:ChromedTitleBar>
+            </as:ChromedTitleBar.RightContent>
+        </as:ChromedTitleBar>
 
         <!--  Overlay  -->
         <ContentControl
