@@ -10,8 +10,6 @@
         <PackageReference Include="Avalonia.Themes.Fluent" />
         <PackageReference Include="CommunityToolkit.Mvvm" />
         <PackageReference Include="NCrunch.Framework" />
-        <PackageReference Include="System.Net.Http" />
-        <PackageReference Include="System.Text.RegularExpressions" />
     </ItemGroup>
 
     <ItemGroup>
