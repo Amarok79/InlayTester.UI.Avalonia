@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <OutputPath>..\..\..\bin\app\ui</OutputPath>
         <AppendTargetFrameworkToOutputPath>False</AppendTargetFrameworkToOutputPath>
         <ApplicationIcon>Assets\app.ico</ApplicationIcon>
@@ -18,9 +18,9 @@
     <ItemGroup>
         <PackageReference Include="ActiproSoftware.Controls.Avalonia" />
         <PackageReference Include="Avalonia.Desktop" />
-        <PackageReference Include="Avalonia.Diagnostics" />
         <PackageReference Include="Avalonia.Fonts.Inter" />
         <PackageReference Include="Avalonia.LinuxFramebuffer" />
+        <PackageReference Include="AvaloniaUI.DiagnosticsSupport" />
         <PackageReference Include="DryIoc.MefAttributedModel.dll" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
         <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" />

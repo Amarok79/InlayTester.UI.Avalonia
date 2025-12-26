@@ -136,7 +136,7 @@ public class App : ApplicationBase
 
             if (desktop.MainWindow != null && configuration.GetValue("avalonia:dev-tools", false))
             {
-                desktop.MainWindow.AttachDevTools();
+                this.AttachDeveloperTools();
             }
         }
 
